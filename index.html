@@ -2,63 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Me</title>
+    <title>Fightgamer124</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f6f8;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg: #f2f2f2;
+            --card: #ffffff;
+            --text: #1f1f1f;
+            --muted: #555;
+            --accent: #5865F2;
         }
+
+        body.dark {
+            --bg: #0f1115;
+            --card: #1a1d24;
+            --text: #e6e6e6;
+            --muted: #aaa;
+            --accent: #5865F2;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
         .container {
             max-width: 900px;
             margin: 40px auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 24px;
         }
+
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .toggle {
+            cursor: pointer;
+            background: none;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
         .profile {
             display: flex;
-            align-items: center;
             gap: 30px;
+            align-items: center;
             flex-wrap: wrap;
         }
+
         .profile img {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 4px solid #ddd;
+            object-fit: cover;
+            border: 4px solid var(--accent);
         }
+
         h1 {
             margin: 0;
-            color: #333;
+            font-size: 2.4rem;
         }
+
         h2 {
-            color: #555;
-            margin-top: 5px;
+            margin: 6px 0 12px;
+            color: var(--muted);
+            font-weight: 500;
         }
+
         p {
-            color: #555;
             line-height: 1.6;
+            color: var(--muted);
         }
+
         .details {
             margin-top: 30px;
         }
+
         .details ul {
             list-style: none;
             padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
         }
+
         .details li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+            background: rgba(0,0,0,0.03);
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 0.95rem;
         }
+
+        body.dark .details li {
+            background: rgba(255,255,255,0.05);
+        }
+
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: #888;
+            margin-top: 30px;
+            color: var(--muted);
             font-size: 14px;
         }
     </style>
@@ -66,35 +129,58 @@
 <body>
 
 <div class="container">
-    <div class="profile">
-        <!-- Replace profile.jpg with your picture -->
-        <img src="profile.jpg" alt="My Profile Picture">
+    <div class="card">
 
-        <div>
-            <h1>Your Name</h1>
-            <h2>Your Title / Role</h2>
-            <p>
-                Hi! I’m a passionate individual who enjoys technology, learning new skills,
-                and building cool things. This website is a short introduction about who I am
-                and what I do.
-            </p>
+        <div class="topbar">
+            <strong>fightgamer124.dev</strong>
+            <button class="toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
         </div>
-    </div>
 
-    <div class="details">
-        <h2>Details</h2>
-        <ul>
-            <li><strong>Location:</strong> Your Country / City</li>
-            <li><strong>Email:</strong> your@email.com</li>
-            <li><strong>Skills:</strong> Python, HTML, PowerShell, etc.</li>
-            <li><strong>Interests:</strong> Coding, automation, servers, learning</li>
-        </ul>
-    </div>
+        <div class="profile">
+            <!-- Put your image in the same folder as this file -->
+            <img src="profile.jpg" alt="Fightgamer124">
 
-    <footer>
-        © 2026 Your Name — All rights reserved
-    </footer>
+            <div>
+                <h1>Fightgamer124</h1>
+                <h2>Discord Bot Coder & Hoster</h2>
+                <p>
+                    I’m a Discord bot developer and hoster focused on automation,
+                    moderation systems, and custom Discord solutions. I enjoy
+                    working with Python, managing servers, and building reliable
+                    bots for communities.
+                </p>
+            </div>
+        </div>
+
+        <div class="details">
+            <ul>
+                <li><strong>Role:</strong> Discord Bot Developer</li>
+                <li><strong>Languages:</strong> Python, HTML, PowerShell</li>
+                <li><strong>Hosting:</strong> Windows / Server Environments</li>
+                <li><strong>Status:</strong> Always building 🚀</li>
+            </ul>
+        </div>
+
+        <footer>
+            © 2026 Fightgamer124
+        </footer>
+
+    </div>
 </div>
+
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme",
+            document.body.classList.contains("dark") ? "dark" : "light"
+        );
+    }
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+    }
+</script>
 
 </body>
 </html>
