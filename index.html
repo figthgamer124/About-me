@@ -1,185 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Fightgamer124</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Fightgamer124</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --bg: #f2f2f2;
-            --card: #ffffff;
-            --text: #1f1f1f;
-            --muted: #555;
-            --accent: #5865F2;
-        }
+<style>
+:root {
+    --bg:#0f1115;
+    --card:#1a1d24;
+    --text:#e6e6e6;
+    --muted:#aaa;
+    --accent:#5865F2;
+    --neon:#7f8cff;
+}
 
-        body.dark {
-            --bg: #0f1115;
-            --card: #1a1d24;
-            --text: #e6e6e6;
-            --muted: #aaa;
-            --accent: #5865F2;
-        }
+body {
+    margin:0;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
 
-        * {
-            box-sizing: border-box;
-            transition: background 0.3s, color 0.3s;
-        }
+.container {
+    max-width:900px;
+    margin:40px auto;
+    padding:24px;
+}
 
-        body {
-            margin: 0;
-            font-family: "Segoe UI", system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
+.card {
+    background:var(--card);
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 0 25px rgba(88,101,242,0.2);
+}
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 24px;
-        }
+.topbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
 
-        .card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
+.toggle {
+    background:none;
+    border:2px solid var(--accent);
+    color:var(--accent);
+    padding:8px 14px;
+    border-radius:30px;
+    cursor:pointer;
+}
 
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
+.profile {
+    display:flex;
+    gap:30px;
+    align-items:center;
+    flex-wrap:wrap;
+}
 
-        .toggle {
-            cursor: pointer;
-            background: none;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            padding: 8px 14px;
-            border-radius: 30px;
-            font-weight: 600;
-        }
+.profile img {
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--accent);
+    box-shadow:0 0 20px var(--neon);
+}
 
-        .profile {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+h1 {
+    margin:0;
+    font-size:2.4rem;
+    text-shadow:0 0 12px var(--neon);
+}
 
-        .profile img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent);
-        }
+h2 {
+    margin:6px 0 12px;
+    color:var(--muted);
+}
 
-        h1 {
-            margin: 0;
-            font-size: 2.4rem;
-        }
+p {
+    color:var(--muted);
+    line-height:1.6;
+}
 
-        h2 {
-            margin: 6px 0 12px;
-            color: var(--muted);
-            font-weight: 500;
-        }
+.status {
+    margin-top:14px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
 
-        p {
-            line-height: 1.6;
-            color: var(--muted);
-        }
+.dot {
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:gray;
+    box-shadow:0 0 10px gray;
+}
 
-        .details {
-            margin-top: 30px;
-        }
+.dot.online {
+    background:#3ba55d;
+    box-shadow:0 0 12px #3ba55d;
+}
 
-        .details ul {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-        }
+.dot.offline {
+    background:#ed4245;
+    box-shadow:0 0 12px #ed4245;
+}
 
-        .details li {
-            background: rgba(0,0,0,0.03);
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-        }
+.actions {
+    margin-top:25px;
+}
 
-        body.dark .details li {
-            background: rgba(255,255,255,0.05);
-        }
+.neon-btn {
+    display:inline-block;
+    padding:14px 26px;
+    border-radius:40px;
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    background:var(--accent);
+    box-shadow:
+        0 0 10px var(--neon),
+        0 0 25px rgba(88,101,242,0.8);
+    transition:transform .2s, box-shadow .2s;
+}
 
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: var(--muted);
-            font-size: 14px;
-        }
-    </style>
+.neon-btn:hover {
+    transform:scale(1.05);
+    box-shadow:
+        0 0 20px var(--neon),
+        0 0 40px rgba(88,101,242,1);
+}
+
+.details {
+    margin-top:35px;
+}
+
+.details ul {
+    list-style:none;
+    padding:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+}
+
+.details li {
+    background:rgba(255,255,255,0.05);
+    padding:16px;
+    border-radius:14px;
+}
+
+footer {
+    text-align:center;
+    margin-top:30px;
+    color:var(--muted);
+    font-size:14px;
+}
+</style>
 </head>
 <body>
 
 <div class="container">
-    <div class="card">
+<div class="card">
 
-        <div class="topbar">
-            <strong>fightgamer124.dev</strong>
-            <button class="toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+<div class="topbar">
+    <strong>fightgamer124.dev</strong>
+    <button class="toggle" onclick="toggleTheme()">🌙 Dark</button>
+</div>
+
+<div class="profile">
+    <img src="profile.jpg" alt="Fightgamer124">
+
+    <div>
+        <h1>Fightgamer124</h1>
+        <h2>Discord Bot Coder & Hoster</h2>
+        <p>
+            Discord bot developer focused on automation, moderation,
+            and reliable hosting. Built with Python and server-side
+            stability in mind.
+        </p>
+
+        <!-- LIVE STATUS -->
+        <div class="status">
+            <span class="dot" id="statusDot"></span>
+            <span id="statusText">Checking bot status...</span>
         </div>
 
-        <div class="profile">
-            <!-- Put your image in the same folder as this file -->
-            <img src="profile.jpg" alt="Fightgamer124">
-
-            <div>
-                <h1>Fightgamer124</h1>
-                <h2>Discord Bot Coder & Hoster</h2>
-                <p>
-                    I’m a Discord bot developer and hoster focused on automation,
-                    moderation systems, and custom Discord solutions. I enjoy
-                    working with Python, managing servers, and building reliable
-                    bots for communities.
-                </p>
-            </div>
+        <!-- GET BOT BUTTON -->
+        <div class="actions">
+            <a class="neon-btn"
+               href="https://discord.com/oauth2/authorize?CLIENT_ID_HERE"
+               target="_blank">
+               🤖 Get the Bot
+            </a>
         </div>
-
-        <div class="details">
-            <ul>
-                <li><strong>Role:</strong> Discord Bot Developer</li>
-                <li><strong>Languages:</strong> Python, HTML, PowerShell</li>
-                <li><strong>Hosting:</strong> Discord Bot Hosting Services</li>
-                <li><strong>Status:</strong> Always building 🚀</li>
-            </ul>
-        </div>
-
-        <footer>
-            © 2026 Fightgamer124
-        </footer>
-
     </div>
 </div>
 
-<script>
-    function toggleTheme() {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("theme",
-            document.body.classList.contains("dark") ? "dark" : "light"
-        );
-    }
+<div class="details">
+<ul>
+    <li><strong>Language:</strong> Python</li>
+    <li><strong>Hosting:</strong> Windows Server</li>
+    <li><strong>Focus:</strong> Automation & Moderation</li>
+    <li><strong>Status:</strong> Always building 🚀</li>
+</ul>
+</div>
 
-    // Load saved theme
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
+<footer>
+© 2026 Fightgamer124
+</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+
+/*
+LIVE BOT STATUS
+Replace API_URL with your own endpoint that returns:
+{ "online": true }
+*/
+const API_URL = "https://YOUR_API_ENDPOINT/status";
+
+fetch(API_URL)
+.then(res => res.json())
+.then(data => {
+    const dot = document.getElementById("statusDot");
+    const text = document.getElementById("statusText");
+
+    if (data.online) {
+        dot.classList.add("online");
+        text.textContent = "Bot is Online";
+    } else {
+        dot.classList.add("offline");
+        text.textContent = "Bot is Offline";
     }
+})
+.catch(() => {
+    document.getElementById("statusText").textContent =
+        "Status unavailable";
+});
 </script>
 
 </body>
