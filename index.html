@@ -179,49 +179,54 @@ function formatUptime(sec){
 }
 
 <script>
-const URL = "https://gist.githubusercontent.com/figthgamer124/fcb15385ebacc7e89c79e95dadbc7d86/raw/status.json";
-const OFFLINE_AFTER = 120; // seconds
+document.addEventListener("DOMContentLoaded", () => {
 
-function formatUptime(seconds = 0) {
-  const d = Math.floor(seconds / 86400);
-  const h = Math.floor(seconds % 86400 / 3600);
-  const m = Math.floor(seconds % 3600 / 60);
-  const s = seconds % 60;
-  return `${d}d ${h}h ${m}m ${s}s`;
-}
+  const URL = "https://gist.githubusercontent.com/figthgamer124/fcb15385ebacc7e89c79e95dadbc7d86/raw/status.json";
+  const OFFLINE_AFTER = 120; // seconds before considering offline
 
-async function loadStatus() {
-  try {
-    const res = await fetch(URL + "?t=" + Date.now());
-    const data = await res.json();
-
-    const dot = document.getElementById("statusDot");
-    const status = document.getElementById("statusText");
-    const uptime = document.getElementById("uptimeText");
-
-    // reset classes
-    dot.classList.remove("online", "offline");
-
-    const last = new Date(data.last_update).getTime();
-    const alive = Date.now() - last < OFFLINE_AFTER * 1000;
-
-    if (data.online && alive) {
-      dot.classList.add("online");
-      status.textContent = "Bot is Online";
-    } else {
-      dot.classList.add("offline");
-      status.textContent = "Bot is Offline";
-    }
-
-    uptime.textContent = "Uptime: " + formatUptime(data.uptime);
-
-  } catch (e) {
-    document.getElementById("statusText").textContent = "Status unavailable";
+  function formatUptime(seconds = 0) {
+    const d = Math.floor(seconds / 86400);
+    const h = Math.floor(seconds % 86400 / 3600);
+    const m = Math.floor(seconds % 3600 / 60);
+    const s = seconds % 60;
+    return `${d}d ${h}h ${m}m ${s}s`;
   }
-}
 
-loadStatus();
-setInterval(loadStatus, 60000);
+  async function loadStatus() {
+    try {
+      const res = await fetch(URL + "?t=" + Date.now());
+      const data = await res.json();
+
+      const dot = document.getElementById("statusDot");
+      const status = document.getElementById("statusText");
+      const uptime = document.getElementById("uptimeText");
+
+      // reset state
+      dot.classList.remove("online", "offline");
+
+      const lastUpdate = new Date(data.last_update).getTime();
+      const alive = Date.now() - lastUpdate < OFFLINE_AFTER * 1000;
+
+      if (data.online && alive) {
+        dot.classList.add("online");
+        status.textContent = "Bot is Online";
+      } else {
+        dot.classList.add("offline");
+        status.textContent = "Bot is Offline";
+      }
+
+      uptime.textContent = "Uptime: " + formatUptime(data.uptime);
+
+    } catch (err) {
+      console.error("Status fetch failed:", err);
+      document.getElementById("statusText").textContent = "Status unavailable";
+    }
+  }
+
+  loadStatus();
+  setInterval(loadStatus, 60000); // refresh every 60s
+
+});
 </script>
 
 </body>
