@@ -32,23 +32,7 @@ body {
     background:var(--card);
     border-radius:18px;
     padding:30px;
-    box-shadow:0 0 25px rgba(88,101,242,0.2);
-}
-
-.topbar {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.toggle {
-    background:none;
-    border:2px solid var(--accent);
-    color:var(--accent);
-    padding:8px 14px;
-    border-radius:30px;
-    cursor:pointer;
+    box-shadow:0 0 30px rgba(88,101,242,0.3);
 }
 
 .profile {
@@ -62,9 +46,8 @@ body {
     width:200px;
     height:200px;
     border-radius:50%;
-    object-fit:cover;
     border:4px solid var(--accent);
-    box-shadow:0 0 20px var(--neon);
+    box-shadow:0 0 25px var(--neon);
 }
 
 h1 {
@@ -74,21 +57,16 @@ h1 {
 }
 
 h2 {
+    color:var(--muted);
     margin:6px 0 12px;
-    color:var(--muted);
-}
-
-p {
-    color:var(--muted);
-    line-height:1.6;
 }
 
 .status {
-    margin-top:14px;
-    font-weight:600;
+    margin-top:12px;
     display:flex;
     align-items:center;
     gap:8px;
+    font-weight:600;
 }
 
 .dot {
@@ -96,7 +74,6 @@ p {
     height:12px;
     border-radius:50%;
     background:gray;
-    box-shadow:0 0 10px gray;
 }
 
 .dot.online {
@@ -109,33 +86,20 @@ p {
     box-shadow:0 0 12px #ed4245;
 }
 
-.actions {
-    margin-top:25px;
-}
-
 .neon-btn {
     display:inline-block;
-    padding:14px 26px;
+    margin-top:18px;
+    padding:14px 28px;
     border-radius:40px;
+    background:var(--accent);
     color:white;
     text-decoration:none;
     font-weight:700;
-    background:var(--accent);
-    box-shadow:
-        0 0 10px var(--neon),
-        0 0 25px rgba(88,101,242,0.8);
-    transition:transform .2s, box-shadow .2s;
-}
-
-.neon-btn:hover {
-    transform:scale(1.05);
-    box-shadow:
-        0 0 20px var(--neon),
-        0 0 40px rgba(88,101,242,1);
+    box-shadow:0 0 15px var(--neon),0 0 30px var(--accent);
 }
 
 .details {
-    margin-top:35px;
+    margin-top:30px;
 }
 
 .details ul {
@@ -148,7 +112,7 @@ p {
 
 .details li {
     background:rgba(255,255,255,0.05);
-    padding:16px;
+    padding:14px;
     border-radius:14px;
 }
 
@@ -156,94 +120,82 @@ footer {
     text-align:center;
     margin-top:30px;
     color:var(--muted);
-    font-size:14px;
 }
 </style>
 </head>
-<body>
 
+<body>
 <div class="container">
 <div class="card">
 
-<div class="topbar">
-    <strong>fightgamer124.dev</strong>
-    <button class="toggle" onclick="toggleTheme()">🌙 Dark</button>
-</div>
-
 <div class="profile">
-    <img src="profile.jpg" alt="Fightgamer124">
+<img src="profile.jpg" alt="Fightgamer124">
 
-    <div>
-        <h1>Fightgamer124</h1>
-        <h2>Discord Bot Coder & Hoster</h2>
-        <p>
-            Discord bot developer focused on automation, moderation,
-            and reliable hosting. Built with Python and server-side
-            stability in mind.
-        </p>
+<div>
+<h1>Fightgamer124</h1>
+<h2>Discord Bot Coder & Hoster</h2>
 
-        <!-- LIVE STATUS -->
-        <div class="status">
-            <span class="dot" id="statusDot"></span>
-            <span id="statusText">Checking bot status...</span>
-        </div>
+<p>
+Discord bot developer specializing in automation, moderation,
+and reliable Discord bot hosting using Python.
+</p>
 
-        <!-- GET BOT BUTTON -->
-        <div class="actions">
-            <a class="neon-btn"
-               href="https://discord.com/oauth2/authorize?CLIENT_ID_HERE"
-               target="_blank">
-               🤖 Get the Bot
-            </a>
-        </div>
-    </div>
+<div class="status">
+<span class="dot" id="statusDot"></span>
+<span id="statusText">Checking status...</span>
+</div>
+<div id="uptimeText" style="color:#aaa;font-size:0.9rem;"></div>
+
+<a class="neon-btn"
+   href="https://discord.com/oauth2/authorize?CLIENT_ID_HERE"
+   target="_blank">
+🤖 Get the Bot
+</a>
+</div>
 </div>
 
 <div class="details">
 <ul>
-    <li><strong>Language:</strong> Python</li>
-    <li><strong>Hosting:</strong> Windows Server</li>
-    <li><strong>Focus:</strong> Automation & Moderation</li>
-    <li><strong>Status:</strong> Always building 🚀</li>
+<li><strong>Language:</strong> Python</li>
+<li><strong>Hosting:</strong> Discord Bot Hosting</li>
+<li><strong>Focus:</strong> Automation & Moderation</li>
+<li><strong>Status:</strong> Always building 🚀</li>
 </ul>
 </div>
 
-<footer>
-© 2026 Fightgamer124
-</footer>
-
+<footer>© 2026 Fightgamer124</footer>
 </div>
 </div>
 
 <script>
-function toggleTheme() {
-    document.body.classList.toggle("dark");
+function formatUptime(sec){
+    const d=Math.floor(sec/86400);
+    sec%=86400;
+    const h=Math.floor(sec/3600);
+    sec%=3600;
+    const m=Math.floor(sec/60);
+    const s=sec%60;
+    return `${d}d ${h}h ${m}m ${s}s`;
 }
 
-/*
-LIVE BOT STATUS
-Replace API_URL with your own endpoint that returns:
-{ "online": true }
-*/
-const API_URL = "https://YOUR_API_ENDPOINT/status";
+fetch("https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/status.json")
+.then(r=>r.json())
+.then(data=>{
+    const dot=document.getElementById("statusDot");
+    const status=document.getElementById("statusText");
+    const uptime=document.getElementById("uptimeText");
 
-fetch(API_URL)
-.then(res => res.json())
-.then(data => {
-    const dot = document.getElementById("statusDot");
-    const text = document.getElementById("statusText");
-
-    if (data.online) {
+    if(data.online){
         dot.classList.add("online");
-        text.textContent = "Bot is Online";
+        status.textContent="Bot is Online";
     } else {
         dot.classList.add("offline");
-        text.textContent = "Bot is Offline";
+        status.textContent="Bot is Offline";
     }
+    uptime.textContent="Uptime: "+formatUptime(data.uptime);
 })
-.catch(() => {
-    document.getElementById("statusText").textContent =
-        "Status unavailable";
+.catch(()=>{
+    document.getElementById("statusText").textContent="Status unavailable";
 });
 </script>
 
