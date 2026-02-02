@@ -147,7 +147,7 @@ and reliable Discord bot hosting using Python.
 <div id="uptimeText" style="color:#aaa;font-size:0.9rem;"></div>
 
 <a class="neon-btn"
-   href="https://discord.com/oauth2/authorize?CLIENT_ID_HERE"
+   href="https://discord.com/oauth2/authorize?client_id=1410414657499566141&permissions=8&integration_type=0&scope=bot"
    target="_blank">
 🤖 Get the Bot
 </a>
@@ -178,7 +178,7 @@ function formatUptime(sec){
     return `${d}d ${h}h ${m}m ${s}s`;
 }
 
-fetch("https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/status.json")
+fetch("https://gist.githubusercontent.com/figthgamer124/fcb15385ebacc7e89c79e95dadbc7d86/raw/status.json")
 .then(r=>r.json())
 .then(data=>{
     const dot=document.getElementById("statusDot");
