@@ -15,6 +15,37 @@
     --accent:#5865f2;
     --success:#3ba55d;
     --danger:#ed4245;
+    /* Smooth number fade */
+.dot {
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:gray;
+    position:relative;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(59,165,93, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(59,165,93, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(59,165,93, 0);
+    }
+}
+
+.dot.online {
+    background:#3ba55d;
+    animation: pulse 2s infinite;
+}
+
+.dot.offline {
+    background:#ed4245;
+    animation: none;
+}
+
 }
 
 * {
@@ -83,15 +114,6 @@ p {
     margin-top:10px;
 }
 
-.dot {
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    background:gray;
-}
-
-.dot.online { background:var(--success); }
-.dot.offline { background:var(--danger); }
 
 #uptimeText {
     color:var(--muted);
@@ -203,12 +225,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const URL = "https://gist.githubusercontent.com/figthgamer124/fcb15385ebacc7e89c79e95dadbc7d86/raw/status.json";
   const OFFLINE_AFTER = 120;
 
+  let currentUptime = 0;
+  let uptimeInterval = null;
+
+  const uptimeEl = document.getElementById("uptimeText");
+
   function formatUptime(seconds = 0) {
     const d = Math.floor(seconds / 86400);
     const h = Math.floor(seconds % 86400 / 3600);
     const m = Math.floor(seconds % 3600 / 60);
     const s = seconds % 60;
     return `${d}d ${h}h ${m}m ${s}s`;
+  }
+
+  function animateUptimeUpdate() {
+    uptimeEl.classList.add("uptime-update");
+    setTimeout(() => {
+      uptimeEl.classList.remove("uptime-update");
+    }, 200);
+  }
+
+  function startLiveCounter() {
+    if (uptimeInterval) clearInterval(uptimeInterval);
+
+    uptimeInterval = setInterval(() => {
+      currentUptime++;
+      animateUptimeUpdate();
+      uptimeEl.textContent = "Uptime: " + formatUptime(currentUptime);
+    }, 1000);
   }
 
   async function loadStatus() {
@@ -218,7 +262,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const dot = document.getElementById("statusDot");
       const status = document.getElementById("statusText");
-      const uptime = document.getElementById("uptimeText");
 
       dot.classList.remove("online", "offline");
 
@@ -228,12 +271,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data.online && alive) {
         dot.classList.add("online");
         status.textContent = "Bot is Online";
+
+        currentUptime = data.uptime;
+        uptimeEl.textContent = "Uptime: " + formatUptime(currentUptime);
+        startLiveCounter();
+
       } else {
         dot.classList.add("offline");
         status.textContent = "Bot is Offline";
+        uptimeEl.textContent = "Uptime: 0d 0h 0m 0s";
+        if (uptimeInterval) clearInterval(uptimeInterval);
       }
-
-      uptime.textContent = "Uptime: " + formatUptime(data.uptime);
 
     } catch (err) {
       console.error("Status fetch failed:", err);
@@ -246,6 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 </body>
 </html>
