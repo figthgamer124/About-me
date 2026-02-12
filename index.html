@@ -2,71 +2,85 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Fightgamer124</title>
+<title>Fightgamer124 | Discord Bot Developer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-    --bg:#0f1115;
-    --card:#1a1d24;
-    --text:#e6e6e6;
-    --muted:#aaa;
-    --accent:#5c25ff;
-    --neon:#5c25ff;
+    --bg:#0e1117;
+    --card:#161b22;
+    --border:#262c36;
+    --text:#e6edf3;
+    --muted:#8b949e;
+    --accent:#5865f2;
+    --success:#3ba55d;
+    --danger:#ed4245;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     margin:0;
-    font-family:"Segoe UI",system-ui,sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     background:var(--bg);
     color:var(--text);
+    line-height:1.6;
 }
 
 .container {
-    max-width:900px;
-    margin:40px auto;
+    max-width:1000px;
+    margin:60px auto;
     padding:24px;
 }
 
 .card {
     background:var(--card);
-    border-radius:18px;
-    padding:30px;
-    box-shadow:0 0 30px rgba(88,101,242,0.3);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:40px;
 }
 
 .profile {
     display:flex;
-    gap:30px;
+    gap:40px;
     align-items:center;
     flex-wrap:wrap;
 }
 
 .profile img {
-    width:200px;
-    height:200px;
+    width:180px;
+    height:180px;
     border-radius:50%;
-    border:4px solid var(--accent);
-    box-shadow:0 0 25px var(--neon);
+    object-fit:cover;
+    border:3px solid var(--border);
 }
 
 h1 {
     margin:0;
-    font-size:2.4rem;
-    text-shadow:0 0 12px var(--neon);
+    font-size:2.2rem;
+    font-weight:600;
 }
 
 h2 {
+    margin:6px 0 16px;
+    font-size:1rem;
+    font-weight:500;
     color:var(--muted);
-    margin:6px 0 12px;
+}
+
+p {
+    max-width:500px;
+    margin-bottom:18px;
 }
 
 .status {
-    margin-top:12px;
     display:flex;
     align-items:center;
-    gap:8px;
-    font-weight:600;
+    gap:10px;
+    font-weight:500;
+    margin-top:10px;
 }
 
 .dot {
@@ -76,30 +90,38 @@ h2 {
     background:gray;
 }
 
-.dot.online {
-    background:#3ba55d;
-    box-shadow:0 0 12px #3ba55d;
+.dot.online { background:var(--success); }
+.dot.offline { background:var(--danger); }
+
+#uptimeText {
+    color:var(--muted);
+    font-size:0.9rem;
+    margin-top:4px;
 }
 
-.dot.offline {
-    background:#ed4245;
-    box-shadow:0 0 12px #ed4245;
-}
-
-.neon-btn {
+.btn {
     display:inline-block;
-    margin-top:18px;
-    padding:14px 28px;
-    border-radius:40px;
+    margin-top:20px;
+    padding:12px 24px;
+    border-radius:8px;
     background:var(--accent);
     color:white;
     text-decoration:none;
-    font-weight:700;
-    box-shadow:0 0 15px var(--neon),0 0 30px var(--accent);
+    font-weight:600;
+    transition:opacity 0.2s ease;
+}
+
+.btn:hover {
+    opacity:0.85;
 }
 
 .details {
-    margin-top:30px;
+    margin-top:50px;
+}
+
+.details h3 {
+    margin-bottom:20px;
+    font-size:1.1rem;
 }
 
 .details ul {
@@ -107,82 +129,79 @@ h2 {
     padding:0;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:14px;
+    gap:16px;
 }
 
 .details li {
-    background:rgba(255,255,255,0.05);
-    padding:14px;
-    border-radius:14px;
+    background:#0f141a;
+    border:1px solid var(--border);
+    padding:18px;
+    border-radius:12px;
 }
 
 footer {
     text-align:center;
-    margin-top:30px;
+    margin-top:60px;
+    font-size:0.85rem;
     color:var(--muted);
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 <div class="card">
 
 <div class="profile">
-<img src="profile.jpg" alt="Fightgamer124">
+<img src="profile.jpg" alt="Fightgamer124 Profile Image">
 
 <div>
 <h1>Fightgamer124</h1>
-<h2>Discord Bot Coder & Hoster</h2>
+<h2>Discord Bot Developer & Hosting Specialist</h2>
 
 <p>
-Discord bot developer specializing in automation, moderation,
-and reliable Discord bot hosting using Python.
+Professional Discord bot developer specializing in automation,
+moderation systems, and reliable Python-based bot hosting solutions.
+Focused on building scalable and maintainable tools for Discord communities.
 </p>
 
 <div class="status">
 <span class="dot" id="statusDot"></span>
 <span id="statusText">Checking status...</span>
 </div>
-<div id="uptimeText" style="color:#aaa;font-size:0.9rem;"></div>
+<div id="uptimeText"></div>
 
-<a class="neon-btn"
+<a class="btn"
    href="https://discord.com/oauth2/authorize?client_id=1410414657499566141&permissions=8&integration_type=0&scope=bot"
    target="_blank">
-🤖 Get the Bot
+Add Bot to Server
 </a>
 </div>
 </div>
 
 <div class="details">
+<h3>Technical Overview</h3>
 <ul>
-<li><strong>Language:</strong> Python</li>
-<li><strong>Hosting:</strong> Discord Bot Hosting</li>
-<li><strong>Focus:</strong> Automation & Moderation</li>
-<li><strong>Status:</strong> Always building 🚀</li>
+<li><strong>Primary Language:</strong> Python</li>
+<li><strong>Specialization:</strong> Discord Bot Development</li>
+<li><strong>Hosting:</strong> 24/7 Managed Bot Hosting</li>
+<li><strong>Focus Areas:</strong> Automation, Moderation, Reliability</li>
 </ul>
 </div>
 
-<footer>© 2026 Fightgamer124</footer>
-</div>
-</div>
+<footer>
+© 2026 Fightgamer124. All rights reserved.
+</footer>
 
-<script>
-function formatUptime(sec){
-    const d=Math.floor(sec/86400);
-    sec%=86400;
-    const h=Math.floor(sec/3600);
-    sec%=3600;
-    const m=Math.floor(sec/60);
-    const s=sec%60;
-    return `${d}d ${h}h ${m}m ${s}s`;
-}
+</div>
+</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
   const URL = "https://gist.githubusercontent.com/figthgamer124/fcb15385ebacc7e89c79e95dadbc7d86/raw/status.json";
-  const OFFLINE_AFTER = 120; // seconds before considering offline
+  const OFFLINE_AFTER = 120;
 
   function formatUptime(seconds = 0) {
     const d = Math.floor(seconds / 86400);
@@ -201,7 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const status = document.getElementById("statusText");
       const uptime = document.getElementById("uptimeText");
 
-      // reset state
       dot.classList.remove("online", "offline");
 
       const lastUpdate = new Date(data.last_update).getTime();
@@ -224,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   loadStatus();
-  setInterval(loadStatus, 60000); // refresh every 60s
+  setInterval(loadStatus, 60000);
 
 });
 </script>
