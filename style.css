@@ -29,6 +29,10 @@ a {
   z-index: -1;
 }
 
+.hidden {
+  display: none;
+}
+
 .background-glow {
   position: fixed;
   top: 0;
