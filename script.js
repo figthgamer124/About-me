@@ -5,40 +5,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const continueButton = document.getElementById("continueInvite");
   const cancelInvite = document.getElementById("cancelInvite");
 
+  // Show modal on "Invite Bot" button click
   inviteButtons.forEach(button => {
     button.addEventListener("click", () => {
       modal.classList.remove("hidden");
-      modal.style.display = "flex";
     });
   });
 
+  // Hide modal on "Cancel" click
   cancelInvite.addEventListener("click", () => {
     modal.classList.add("hidden");
   });
 
+  // Enable "Continue" button when checkbox is checked
   agreeCheckbox.addEventListener("change", () => {
     continueButton.disabled = !agreeCheckbox.checked;
   });
 
+  // Redirect to invite link on "Continue" click
   continueButton.addEventListener("click", () => {
     window.location.href = "https://discord.com/oauth2/authorize?client_id=1410414657499566141&permissions=8&integration_type=0&scope=bot";
   });
 
   // Fetch bot status
-  fetch("https://gist.githubusercontent.com/figthgamer124/fcb15385ebacc7e89c79e95dadbc7d86/raw/status.json")
+  fetch("https://gist.githubusercontent.com/yourusername/yourgistid/raw/yourfile.json")
     .then(response => response.json())
     .then(data => {
-      const statusIndicator = document.querySelector(".dot");
-      const statusText = document.querySelector(".status-text");
-      if (data.status === "online") {
-        statusIndicator.style.backgroundColor = "#00f0ff";
-        statusText.textContent = "Online";
-      } else {
-        statusIndicator.style.backgroundColor = "#f00";
-        statusText.textContent = "Offline";
-      }
+      document.getElementById("statusText").textContent = data.status;
+      document.getElementById("uptimeText").textContent = data.uptime;
     })
     .catch(error => {
-      console.error("Error fetching bot status:", error);
+      console.error("Error fetching status:", error);
     });
 });
