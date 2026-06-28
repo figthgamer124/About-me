@@ -5,21 +5,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const continueButton = document.getElementById("continueInvite");
   const cancelInvite = document.getElementById("cancelInvite");
 
+  // Show modal when "Invite Bot" button is clicked
   inviteButtons.forEach(button => {
     button.addEventListener("click", () => {
       modal.classList.remove("hidden");
-      modal.style.display = "flex";
     });
   });
 
+  // Hide modal when "Cancel" is clicked
   cancelInvite.addEventListener("click", () => {
-    modal.style.display = "none";
+    modal.classList.add("hidden");
   });
 
+  // Enable "Continue" button only when checkbox is checked
   agreeCheckbox.addEventListener("change", () => {
     continueButton.disabled = !agreeCheckbox.checked;
   });
 
+  // Redirect to Discord invite when "Continue" is clicked
   continueButton.addEventListener("click", () => {
     window.location.href = "https://discord.com/oauth2/authorize?client_id=1410414657499566141&permissions=8&integration_type=0&scope=bot";
   });
@@ -30,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       const statusIndicator = document.querySelector(".dot");
       const statusText = document.querySelector(".status-text");
+
       if (data.status === "online") {
         statusIndicator.style.backgroundColor = "#00f0ff";
         statusText.textContent = "Online";
