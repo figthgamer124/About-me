@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   cancelInvite.addEventListener("click", () => {
-    modal.style.display = "none";
+    modal.classList.add("hidden");
   });
 
   agreeCheckbox.addEventListener("change", () => {
