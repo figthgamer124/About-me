@@ -4,16 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fightgamer124 | Discord Bot</title>
-  <meta name="description" content="Reliable Discord moderation and automation built for communities of every size." />
+  <meta name="description" content="A Discord bot with moderation, automation, and useful tools for your server." />
   
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="background-grid"></div>
   <div class="background-glow"></div>
@@ -40,158 +39,348 @@
   </header>
 
   <main>
+
     <section class="hero">
+
       <div class="hero-left">
-        <span class="badge">Reliable Discord Automation</span>
+
+        <span class="badge">Discord Bot</span>
+
         <h1>
-          Powerful Discord<br>
-          Management<br>
-          Made Simple
+          Manage Your Discord<br>
+          Server<br>
+          Easily
         </h1>
+
         <p>
-          Build safer communities with modern moderation, automation, logging, and utility tools. Fast. Reliable. Available 24/7.
+          Fightgamer124 helps keep your server organized with moderation tools,
+          automation, logging, and useful commands.
         </p>
 
         <div class="hero-buttons">
-          <button id="inviteHero" class="primary-button">Invite Bot</button>
-          <a href="#features" class="secondary-button">Explore Features</a>
+          <button id="inviteHero" class="primary-button">
+            Invite Bot
+          </button>
+
+          <a href="#features" class="secondary-button">
+            View Features
+          </a>
         </div>
+
 
         <div class="status-inline">
-          <div id="statusDot" class="dot"></div>
-          <div>
-            <div id="statusText">Checking status...</div>
-            <div id="uptimeText">Loading uptime...</div>
-          </div>
-        </div>
-      </div>
 
-      <div class="hero-right">
-        <div class="dashboard-card">
-          <div class="dashboard-top">
-            <div class="dashboard-title">Bot Status</div>
-            <div class="online-pill">
-              <div class="dot online"></div>
-              Online
+          <div id="statusDot" class="dot"></div>
+
+          <div>
+            <div id="statusText">
+              Checking status...
+            </div>
+
+            <div id="uptimeText">
+              Loading uptime...
             </div>
           </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-right">
+
+        <div class="dashboard-card">
+
+          <div class="dashboard-top">
+
+            <div class="dashboard-title">
+              Bot Status
+            </div>
+
+            <div class="online-pill">
+
+              <div class="dot online"></div>
+
+              Online
+
+            </div>
+
+          </div>
+
+
           <div class="dashboard-content">
+
             <div class="metric">
               <span>Servers</span>
               <strong id="serverCount">Loading...</strong>
             </div>
+
+
             <div class="metric">
               <span>Latency</span>
               <strong>&lt;100ms</strong>
             </div>
+
+
             <div class="metric">
               <span>Hosting</span>
               <strong>24/7</strong>
             </div>
+
+
             <div class="metric">
               <span>Version</span>
               <strong>V1.2.7</strong>
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
+
+
 
     <section id="features" class="features">
-      <h2>Everything You Need</h2>
+
+      <h2>Bot Features</h2>
+
+
       <div class="feature-grid">
+
+
         <div class="feature-card">
+
           <h3>Moderation</h3>
+
           <p>
-            Automatic moderation tools, warnings, timeouts, filters, and server protection.
+            Keep your server clean with warnings, timeouts,
+            filters, and moderation commands.
           </p>
+
         </div>
+
+
+
         <div class="feature-card">
+
           <h3>Automation</h3>
+
           <p>
-            Create workflows, scheduled tasks, reaction roles, free/easy automod, and utility commands.
+            Save time with reaction roles, scheduled tasks,
+            automations, and useful server tools.
           </p>
+
         </div>
+
+
+
         <div class="feature-card">
+
           <h3>Logging</h3>
+
           <p>
-            Track important events with detailed logging.
+            Track important server events with simple,
+            detailed logs.
           </p>
+
         </div>
+
+
+
         <div class="feature-card">
+
           <h3>Reliability</h3>
+
           <p>
-            Hosted around the clock with automatic monitoring.
+            The bot runs 24/7 with monitoring to keep it online.
           </p>
+
         </div>
+
+
       </div>
+
     </section>
+
+
 
     <section id="status" class="status-section">
+
       <h2>Live Status</h2>
+
+
       <div class="status-card">
+
         <div class="status-header">
+
           <div id="liveDot" class="dot"></div>
+
           <div>
-            <h3 id="liveStatus">Checking...</h3>
-            <p id="liveUptime">Loading...</p>
+
+            <h3 id="liveStatus">
+              Checking...
+            </h3>
+
+            <p id="liveUptime">
+              Loading...
+            </p>
+
           </div>
+
         </div>
+
       </div>
+
+
     </section>
+
+
+
 
     <section id="faq" class="faq">
-      <h2>Frequently Asked Questions</h2>
+
+      <h2>FAQ</h2>
+
+
       <div class="faq-item">
+
         <h3>Is the bot free?</h3>
+
         <p>
-          Yes. Core features are available without charge.
+          Yes, the main features are free to use.
         </p>
+
       </div>
+
+
+
       <div class="faq-item">
-        <h3>Is the bot hosted 24/7?</h3>
+
+        <h3>Is the bot online all the time?</h3>
+
         <p>
-          Yes. The bot is continuously monitored and hosted.
+          Yes, it is hosted 24/7 and monitored.
         </p>
+
       </div>
+
+
+
       <div class="faq-item">
-        <h3>Where can I report bugs?</h3>
+
+        <h3>How do I report bugs?</h3>
+
         <p>
-          Use the /ticket new command or contact us at: <p><a href="mailto:Spygaming1245@gmail.com">Spygaming1245@gmail.com</a></p>
+          Use the /ticket new command or contact us at:
+          <br>
+          <a href="mailto:Spygaming1245@gmail.com">
+            Spygaming1245@gmail.com
+          </a>
         </p>
+
       </div>
+
+
     </section>
+
+
   </main>
 
+
+
   <footer>
+
     <div class="footer-links">
-      <a href="tos.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
+
+      <a href="tos.html">
+        Terms
+      </a>
+
+      <a href="privacy.html">
+        Privacy
+      </a>
+
     </div>
-    <p>© 2026 Fightgamer124</p>
+
+
+    <p>
+      © 2026 Fightgamer124
+    </p>
+
   </footer>
 
-  <!-- Modal -->
+
+
+
+
   <div id="inviteModal" class="modal hidden">
+
+
     <div class="modal-card">
-      <h2>Before inviting the bot</h2>
+
+
+      <h2>
+        Before adding the bot
+      </h2>
+
+
       <p>
-        You must agree to the
-        <a href="tos.html" target="_blank">Terms of Service</a>
+        Please read and accept the
+        <a href="tos.html" target="_blank">
+          Terms of Service
+        </a>
+
         and
-        <a href="privacy.html" target="_blank">Privacy Policy</a>.
+
+        <a href="privacy.html" target="_blank">
+          Privacy Policy
+        </a>
+
+        before continuing.
       </p>
+
+
+
       <label class="checkbox">
+
         <input type="checkbox" id="agree" />
-        <span>I agree to the Terms and Privacy Policy.</span>
+
+        <span>
+          I agree to the Terms of Service and Privacy Policy.
+        </span>
+
       </label>
+
+
+
       <div class="modal-buttons">
-        <button id="cancelInvite" class="secondary-button">Cancel</button>
-        <button id="continueInvite" class="primary-button" disabled>Continue</button>
+
+
+        <button id="cancelInvite" class="secondary-button">
+          Cancel
+        </button>
+
+
+        <button id="continueInvite" class="primary-button" disabled>
+          Continue
+        </button>
+
+
       </div>
+
+
     </div>
+
+
   </div>
 
+
+
+
   <script src="script.js"></script>
+
 </body>
 </html>
