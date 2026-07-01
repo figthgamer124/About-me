@@ -320,6 +320,20 @@ footer {
 }
 
 .modal-card {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.modal-card a,
+.modal-card button,
+.modal-card input {
+  user-select: auto;
+  -webkit-user-select: auto;
+}
+
+.modal-card {
   background-color: #1a1a1a;
   padding: 2rem;
   border-radius: 10px;
