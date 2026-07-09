@@ -13,7 +13,7 @@ body {
 }
 
 a {
-  color: #00f0ff;
+  color: #6A329F;
   text-decoration: none;
 }
 
@@ -84,12 +84,12 @@ a {
   align-items: center;
   gap: 0.5rem;
   font-weight: 700;
-  color: #00f0ff;
+  color: #6A329F;
 }
 
 .logo-icon {
   font-size: 1.5rem;
-  color: #00f0ff;
+  color: #6A329F;
 }
 
 .nav-links {
@@ -103,7 +103,7 @@ a {
 }
 
 .nav-links a:hover {
-  color: #00e0ff;
+  color: #6A329F;
 }
 
 /* Hero Section */
@@ -126,7 +126,7 @@ a {
   background-color: #1a1a1a;
   border-radius: 5px;
   font-size: 0.9rem;
-  color: #00f0ff;
+  color: #6A329F;
   margin-bottom: 1rem;
 }
 
@@ -143,7 +143,7 @@ a {
 
 .primary-button {
   padding: 0.75rem 1.5rem;
-  background-color: #00f0ff;
+  background-color: #6A329F;
   color: #000;
   border: none;
   border-radius: 5px;
@@ -159,8 +159,8 @@ a {
 .secondary-button {
   padding: 0.75rem 1.5rem;
   background-color: transparent;
-  color: #00f0ff;
-  border: 2px solid #00f0ff;
+  color: #6A329F;
+  border: 2px solid #6A329F;
   border-radius: 5px;
   font-weight: 600;
   cursor: pointer;
@@ -168,7 +168,7 @@ a {
 }
 
 .secondary-button:hover {
-  background-color: #00f0ff;
+  background-color: #6A329F;
   color: #000;
 }
 
@@ -218,7 +218,7 @@ a {
   gap: 0.5rem;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #00f0ff;
+  color: #6A329F;
 }
 
 /* Stats Section */
@@ -378,7 +378,7 @@ footer {
 }
 
 .checkbox input {
-  accent-color: #00f0ff;
+  accent-color: #6A329F;
 }
 
 .modal-buttons {
