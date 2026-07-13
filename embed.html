@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fightgamer124 Embed Builder</title>
+
+<link rel="stylesheet" href="embed.css">
+
+</head>
+
+<body>
+
+
+<header class="topbar">
+
+    <div>
+        <h1>Discord Embed Builder</h1>
+        <p>Create professional Discord messages</p>
+    </div>
+
+
+    <div class="top-actions">
+
+        <button id="importBtn">
+            Import JSON
+        </button>
+
+        <button id="exportBtn">
+            Export JSON
+        </button>
+
+    </div>
+
+
+</header>
+
+
+
+<main class="layout">
+
+
+
+<section class="editor">
+
+
+
+<div class="panel-header">
+
+<h2>Embeds</h2>
+
+<button id="addEmbed">
++ Add Embed
+</button>
+
+</div>
+
+
+
+<div id="embedTabs"></div>
+
+
+
+<div id="embedEditor">
+
+
+
+<h3>Author</h3>
+
+
+<input id="authorName"
+placeholder="Author name">
+
+
+<input id="authorURL"
+placeholder="Author URL">
+
+
+<input id="authorIcon"
+placeholder="Author icon URL">
+
+
+
+
+
+<h3>Title</h3>
+
+
+<input id="title"
+placeholder="Embed title">
+
+
+<input id="titleURL"
+placeholder="Title URL">
+
+
+
+
+
+<h3>Description</h3>
+
+
+<textarea 
+id="description"
+placeholder="Supports Discord markdown"></textarea>
+
+
+
+<div class="counter">
+
+<span id="descriptionCount">
+0
+</span>
+
+/4096
+
+</div>
+
+
+
+
+
+<h3>Color</h3>
+
+
+<div class="color-row">
+
+<input 
+id="color"
+type="color"
+value="#5865F2">
+
+
+<input
+id="colorHex"
+value="#5865F2">
+
+</div>
+
+
+
+
+
+<h3>Images</h3>
+
+
+<input
+id="thumbnail"
+placeholder="Thumbnail URL">
+
+
+<input
+id="image"
+placeholder="Image URL">
+
+
+
+
+
+
+<h3>Footer</h3>
+
+
+<input
+id="footerText"
+placeholder="Footer text">
+
+
+<input
+id="footerIcon"
+placeholder="Footer icon URL">
+
+
+
+
+
+<label class="checkbox">
+
+<input
+id="timestamp"
+type="checkbox">
+
+Enable timestamp
+
+</label>
+
+
+
+
+
+
+
+<h3>Fields</h3>
+
+
+<div id="fields"></div>
+
+
+
+<button id="addField">
+
++ Add Field
+
+</button>
+
+
+
+
+
+
+
+<h3>Buttons</h3>
+
+
+<div id="buttons"></div>
+
+
+<button id="addButton">
+
++ Add Button
+
+</button>
+
+
+
+
+
+
+
+</div>
+
+
+
+<div class="bottom-actions">
+
+
+<button id="duplicateEmbed">
+
+Duplicate Embed
+
+</button>
+
+
+<button id="deleteEmbed">
+
+Delete Embed
+
+</button>
+
+
+<button id="saveDraft">
+
+Save Draft
+
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="preview">
+
+
+
+<h2>Preview</h2>
+
+
+
+<div class="discord-window">
+
+
+
+<div class="discord-message">
+
+
+
+<div class="avatar">
+
+F
+
+</div>
+
+
+
+<div class="message-content">
+
+
+
+<div class="username">
+
+Fightgamer124
+
+</div>
+
+
+
+
+<div id="previewContainer"></div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
+<input 
+type="file"
+id="jsonFile"
+accept=".json"
+hidden>
+
+
+
+<textarea
+id="jsonOutput"
+hidden></textarea>
+
+
+
+
+<script src="markdown.js"></script>
+<script src="validator.js"></script>
+<script src="storage.js"></script>
+<script src="export.js"></script>
+<script src="embed.js"></script>
+
+
+</body>
+
+</html>
