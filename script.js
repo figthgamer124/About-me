@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const agreeCheckbox = document.getElementById("agree");
   const continueButton = document.getElementById("continueInvite");
   const cancelInvite = document.getElementById("cancelInvite");
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
 
   inviteButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -20,13 +22,36 @@ document.addEventListener("DOMContentLoaded", () => {
   agreeCheckbox.addEventListener("change", () => {
     continueButton.disabled = !agreeCheckbox.checked;
   });
-
+  
   continueButton.addEventListener("click", () => {
     window.location.href =
       "https://discord.com/oauth2/authorize?client_id=1410414657499566141&permissions=8&integration_type=0&scope=bot";
   });
+  
+  // Mobile navigation
+if (menuToggle && navMenu) {
 
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
 
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+    });
+  });
+
+  // Close menu if the user taps outside of it
+  document.addEventListener("click", (e) => {
+    if (
+      !navMenu.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
+      navMenu.classList.remove("active");
+    }
+  });
+
+}
   function loadBotStatus() {
 
     fetch("https://gist.githubusercontent.com/figthgamer124/fcb15385ebacc7e89c79e95dadbc7d86/raw/status.json?t=" + Date.now())
