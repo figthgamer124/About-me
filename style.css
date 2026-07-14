@@ -392,3 +392,146 @@ footer {
 .hidden {
   display: none !important;
 }
+/* ===========================
+   Responsive Navbar
+=========================== */
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:1.5rem;
+}
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .navbar{
+        position:relative;
+        padding:1rem;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-menu{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:#111;
+        padding:20px;
+        flex-direction:column;
+        border-top:1px solid #222;
+        box-shadow:0 10px 20px rgba(0,0,0,.4);
+    }
+
+    .nav-menu.active{
+        display:flex;
+    }
+
+    .nav-links{
+        width:100%;
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+    }
+
+    .nav-links a{
+        width:100%;
+        text-align:center;
+        padding:10px;
+    }
+
+    #inviteTop{
+        width:100%;
+        margin-top:10px;
+    }
+
+    .hero{
+        padding:2rem 1rem;
+        text-align:center;
+    }
+
+    .hero-left h1{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .hero-buttons a,
+    .hero-buttons button{
+        width:100%;
+        max-width:320px;
+    }
+
+    .status-inline{
+        justify-content:center;
+    }
+
+    .hero-right{
+        margin-top:30px;
+    }
+
+    .dashboard-card{
+        width:100%;
+        max-width:400px;
+    }
+
+    .stats{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .stat-card{
+        width:100%;
+        max-width:320px;
+    }
+
+    .features,
+    .faq,
+    .status-section{
+        padding:3rem 1rem;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-links{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .modal-buttons{
+        flex-direction:column;
+    }
+
+    .modal-buttons button{
+        width:100%;
+    }
+
+    button,
+    .primary-button,
+    .secondary-button{
+        min-height:48px;
+    }
+}
