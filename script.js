@@ -165,7 +165,7 @@ if (menuToggle && navMenu) {
 
 
   // Refresh JSON every minute
-  setInterval(loadBotStatus, 60000);
+  setInterval(loadBotStatus, 1000);
 
 
 });
