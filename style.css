@@ -51,6 +51,28 @@ a {
   z-index: 1000;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.logo-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.08);
+}
+
 .back-container{
     width:90%;
     max-width:1200px;
