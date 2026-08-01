@@ -61,12 +61,9 @@ a {
     font-size: 1.1rem;
 }
 
-.logo-img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    display: block;
-    transition: transform 0.25s ease;
+.logo-img{
+    width:42px;
+    height:42px;
 }
 
 .logo:hover .logo-img {
