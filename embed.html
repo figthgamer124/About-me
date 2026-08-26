@@ -1,361 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Fightgamer124 Embed Builder</title>
-
-<link rel="stylesheet" href="embed.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discohook Style Embed Builder</title>
+    <link rel="stylesheet" href="embed.css">
 </head>
-
 <body>
 
-
 <header class="topbar">
-
-    <div>
-        <h1>Discord Embed Builder</h1>
-        <p>Create professional Discord messages</p>
+    <div class="brand">
+        <!-- Back to Index Button -->
+        <a href="index.html" class="btn btn-secondary back-btn" title="Back to Main Index">
+            &#8594; Back To Home Page
+        </a>
+        <h1>Discohook Builder</h1>
+        <span class="badge">v2.0</span>
     </div>
-
-
     <div class="top-actions">
-
-        <button id="importBtn">
-            Import JSON
-        </button>
-
-        <button id="exportBtn">
-            Export JSON
-        </button>
-
+        <button id="importBtn" class="btn btn-secondary">Import JSON</button>
+        <button id="exportBtn" class="btn btn-secondary">Export JSON</button>
+        <button id="clearAllBtn" class="btn btn-danger">Clear All</button>
     </div>
-
-
 </header>
 
-
+<!-- Webhook Integration Bar -->
+<div class="webhook-bar">
+    <input type="url" id="webhookUrl" placeholder="https://discord.com/api/webhooks/..." />
+    <button id="sendWebhookBtn" class="btn btn-primary">Send Message</button>
+</div>
 
 <main class="layout">
-
-
-
-<section class="editor">
-
-
-
-<div class="panel-header">
-
-<h2>Embeds</h2>
-
-<button id="addEmbed">
-+ Add Embed
-</button>
-
-</div>
-
-
-
-<div id="embedTabs"></div>
-
-
-
-<div id="embedEditor">
-
-
-
-<h3>Author</h3>
-
-
-<input id="authorName"
-placeholder="Author name">
-
-
-<input id="authorURL"
-placeholder="Author URL">
-
-
-<input id="authorIcon"
-placeholder="Author icon URL">
-
-
-
-
-
-<h3>Title</h3>
-
-
-<input id="title"
-placeholder="Embed title">
-
-
-<input id="titleURL"
-placeholder="Title URL">
-
-
-
-
-
-<h3>Description</h3>
-
-
-<textarea 
-id="description"
-placeholder="Supports Discord markdown"></textarea>
-
-
-
-<div class="counter">
-
-<span id="descriptionCount">
-0
-</span>
-
-/4096
-
-</div>
-
-
-
-
-
-<h3>Color</h3>
-
-
-<div class="color-row">
-
-<input 
-id="color"
-type="color"
-value="#5865F2">
-
-
-<input
-id="colorHex"
-value="#5865F2">
-
-</div>
-
-
-
-
-
-<h3>Images</h3>
-
-
-<input
-id="thumbnail"
-placeholder="Thumbnail URL">
-
-
-<input
-id="image"
-placeholder="Image URL">
-
-
-
-
-
-
-<h3>Footer</h3>
-
-
-<input
-id="footerText"
-placeholder="Footer text">
-
-
-<input
-id="footerIcon"
-placeholder="Footer icon URL">
-
-
-
-
-
-<label class="checkbox">
-
-<input
-id="timestamp"
-type="checkbox">
-
-Enable timestamp
-
-</label>
-
-
-
-
-
-
-
-<h3>Fields</h3>
-
-
-<div id="fields"></div>
-
-
-
-<button id="addField">
-
-+ Add Field
-
-</button>
-
-
-
-
-
-
-
-<h3>Buttons</h3>
-
-
-<div id="buttons"></div>
-
-
-<button id="addButton">
-
-+ Add Button
-
-</button>
-
-
-
-
-
-
-
-</div>
-
-
-
-<div class="bottom-actions">
-
-
-<button id="duplicateEmbed">
-
-Duplicate Embed
-
-</button>
-
-
-<button id="deleteEmbed">
-
-Delete Embed
-
-</button>
-
-
-<button id="saveDraft">
-
-Save Draft
-
-</button>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-<section class="preview">
-
-
-
-<h2>Preview</h2>
-
-
-
-<div class="discord-window">
-
-
-
-<div class="discord-message">
-
-
-
-<div class="avatar">
-
-F
-
-</div>
-
-
-
-<div class="message-content">
-
-
-
-<div class="username">
-
-Fightgamer124
-
-</div>
-
-
-
-
-<div id="previewContainer"></div>
-
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
+    <!-- EDITOR PANEL (Discohook Style Accordion) -->
+    <section class="editor">
+        
+        <!-- Main Message Content -->
+        <details class="accordion-section" open>
+            <summary class="accordion-header">
+                <span>Message Content</span>
+                <span class="counter"><span id="contentCount">0</span>/2000</span>
+            </summary>
+            <div class="accordion-body">
+                <textarea id="messageContent" placeholder="Main message text above embeds... (Supports Discord Markdown)" maxlength="2000"></textarea>
+            </div>
+        </details>
+
+        <!-- Embeds Accordion -->
+        <details class="accordion-section" open>
+            <summary class="accordion-header">
+                <span>Embeds (<span id="embedCount">1</span>/10)</span>
+            </summary>
+            <div class="accordion-body">
+                <div id="embedTabs" class="embed-tabs"></div>
+
+                <div id="embedEditor" class="editor-content">
+                    <!-- Author -->
+                    <details class="nested-accordion">
+                        <summary>Author</summary>
+                        <div class="nested-body">
+                            <input id="authorName" type="text" placeholder="Author name" maxlength="256">
+                            <input id="authorURL" type="url" placeholder="Author URL">
+                            <input id="authorIcon" type="url" placeholder="Author Icon URL">
+                        </div>
+                    </details>
+
+                    <!-- Body (Title & Description) -->
+                    <details class="nested-accordion" open>
+                        <summary>Body</summary>
+                        <div class="nested-body">
+                            <input id="title" type="text" placeholder="Title" maxlength="256">
+                            <input id="titleURL" type="url" placeholder="Title URL">
+                            <div class="label-with-counter">
+                                <label>Description</label>
+                                <span class="counter"><span id="descriptionCount">0</span>/4096</span>
+                            </div>
+                            <textarea id="description" placeholder="Description supports markdown (*italic*, **bold**, [link](url)...)" maxlength="4096"></textarea>
+                            
+                            <!-- Color Swatches -->
+                            <label>Embed Color</label>
+                            <div class="color-picker-row">
+                                <input id="color" type="color" value="#5865f2">
+                                <input id="colorHex" type="text" value="#5865F2" maxlength="7">
+                                <div class="swatches">
+                                    <button class="swatch" data-color="#5865f2" style="background:#5865f2"></button>
+                                    <button class="swatch" data-color="#57f287" style="background:#57f287"></button>
+                                    <button class="swatch" data-color="#fee75c" style="background:#fee75c"></button>
+                                    <button class="swatch" data-color="#eb459e" style="background:#eb459e"></button>
+                                    <button class="swatch" data-color="#ed4245" style="background:#ed4245"></button>
+                                    <button class="swatch" data-color="#000000" style="background:#000000"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Images -->
+                    <details class="nested-accordion">
+                        <summary>Images</summary>
+                        <div class="nested-body">
+                            <input id="thumbnail" type="url" placeholder="Thumbnail URL">
+                            <input id="image" type="url" placeholder="Image URL">
+                        </div>
+                    </details>
+
+                    <!-- Fields -->
+                    <details class="nested-accordion">
+                        <summary>Fields (<span id="fieldCount">0</span>/25)</summary>
+                        <div class="nested-body">
+                            <div id="fields" class="dynamic-list"></div>
+                            <button id="addField" class="btn btn-small">+ Add Field</button>
+                        </div>
+                    </details>
+
+                    <!-- Footer -->
+                    <details class="nested-accordion">
+                        <summary>Footer</summary>
+                        <div class="nested-body">
+                            <input id="footerText" type="text" placeholder="Footer text" maxlength="2048">
+                            <input id="footerIcon" type="url" placeholder="Footer icon URL">
+                            <label class="checkbox">
+                                <input id="timestamp" type="checkbox"> Include Timestamp
+                            </label>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="embed-controls">
+                    <button id="addEmbed" class="btn btn-small">+ Add Embed</button>
+                    <button id="duplicateEmbed" class="btn btn-secondary btn-small">Duplicate</button>
+                    <button id="deleteEmbed" class="btn btn-danger btn-small">Delete</button>
+                </div>
+            </div>
+        </details>
+
+        <!-- Action Rows / Buttons -->
+        <details class="accordion-section">
+            <summary class="accordion-header">
+                <span>Action Rows (Buttons)</span>
+            </summary>
+            <div class="accordion-body">
+                <div id="buttons" class="dynamic-list"></div>
+                <button id="addButton" class="btn btn-small">+ Add Button</button>
+            </div>
+        </details>
+
+        <!-- Raw JSON Preview Accordion -->
+        <details class="accordion-section">
+            <summary class="accordion-header">
+                <span>Raw JSON Payload</span>
+            </summary>
+            <div class="accordion-body">
+                <pre id="jsonViewer" class="json-viewer"></pre>
+            </div>
+        </details>
+
+    </section>
+
+    <!-- DISCORD PREVIEW PANEL -->
+    <section class="preview">
+        <h2>Live Preview</h2>
+        <div class="discord-window">
+            <div class="discord-message">
+                <div class="avatar">D</div>
+                <div class="message-content">
+                    <div class="username-row">
+                        <span class="username">Discohook Webhook</span>
+                        <span class="bot-badge">APP</span>
+                        <span class="timestamp">Today at 12:00 PM</span>
+                    </div>
+                    
+                    <div id="previewMessageContent" class="preview-msg-text"></div>
+                    <div id="previewContainer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
+<input type="file" id="jsonFile" accept=".json" hidden>
 
-
-
-
-
-<input 
-type="file"
-id="jsonFile"
-accept=".json"
-hidden>
-
-
-
-<textarea
-id="jsonOutput"
-hidden></textarea>
-
-
-
-
-<script src="markdown.js"></script>
-<script src="validator.js"></script>
-<script src="storage.js"></script>
-<script src="export.js"></script>
 <script src="embed.js"></script>
-
-
 </body>
-
 </html>

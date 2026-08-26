@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fightgamer124.inc | Discord Bot</title>
-  <link rel="icon" type="image/png" href="/assest/logo.png">
-  <meta name="description" content="A Discord bot with moderation, automation, and useful tools for your server." />
+  <title>FG124 | Discord Bot</title>
   
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <meta name="description" content="Powerful Discord bot providing enterprise-grade moderation, continuous server logging, and seamless workflow automation." />
+  
+  <!-- Preconnects & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -18,377 +20,675 @@
   <div class="background-grid"></div>
   <div class="background-glow"></div>
 
+  <!-- Header Section -->
   <header>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
       <a class="logo" href="#">
-        <img src="assets/logo.png" alt="FG124">
+        <img src="assets/logo.png" alt="Fightgamer124 Logo">
       </a>
 
-      <button class="menu-toggle" id="menuToggle">
-  ☰
-</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        ☰
+      </button>
 
-<div class="nav-menu" id="navMenu">
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#status">Status</a>
-    <a href="#faq">FAQ</a>
-    <a href="tos.html">Terms</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="update.html">Update</a>
-    <a href="embed.html">Embed Creator</a>
-  </div>
+      <div class="nav-menu" id="navMenu">
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#commands">Commands</a>
+          <a href="#status">Status</a>
+          <a href="#faq">FAQ</a>
+          <a href="tos.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="update.html">Changelog</a>
+          <a href="embed.html">Embed Creator</a>
+        </div>
 
-  <button id="inviteTop" class="primary-button">
-    Invite Bot
-  </button>
-</div>
+        <button id="inviteTop" class="primary-button">
+          Add to Discord
+        </button>
+      </div>
     </nav>
   </header>
 
   <main>
-
+    <!-- Hero Section -->
     <section class="hero">
-
       <div class="hero-left">
-
-        <span class="badge">Discord Bot</span>
+        <span class="badge">Official Discord Bot</span>
 
         <h1>
-          Manage Your Discord<br>
-          Server Easily With<br>
-          Fightgamer124.inc
+          Next-Generation<br>
+          Automation & Server<br>
+          Management
         </h1>
 
         <p>
-          Fightgamer124.inc helps keep your server organized with moderation tools,
-          automation, logging, and useful commands.
+          Streamline your Discord community with high-performance moderation tools, real-time logging, custom workflows, and round-the-clock uptime.
         </p>
 
         <div class="hero-buttons">
           <button id="inviteHero" class="primary-button">
-            Invite Bot
+            Add to Discord
           </button>
-
           <a href="#features" class="secondary-button">
-            View Features
+            Explore Features
           </a>
         </div>
 
-
         <div class="status-inline">
-
           <div id="statusDot" class="dot"></div>
-
           <div>
-            <div id="statusText">
-              Checking status...
-            </div>
-
-            <div id="uptimeText">
-              Loading uptime...
-            </div>
+            <div id="statusText">Checking system operational status...</div>
+            <div id="uptimeText">Loading uptime metrics...</div>
           </div>
-
         </div>
-
       </div>
 
-
       <div class="hero-right">
-
         <div class="dashboard-card">
-
           <div class="dashboard-top">
-
-            <div class="dashboard-title">
-              Bot Status
-            </div>
-
+            <div class="dashboard-title">System Metrics</div>
             <div class="online-pill">
-
               <div class="dot online"></div>
-
-              Online
-
+              Operational
             </div>
-
           </div>
 
-
           <div class="dashboard-content">
-
             <div class="metric">
-              <span>Servers</span>
+              <span>Servers Powered</span>
               <strong id="serverCount">Loading...</strong>
             </div>
 
-
             <div class="metric">
-              <span>Latency</span>
+              <span>Average Latency</span>
               <strong>&lt;100ms</strong>
             </div>
 
-
             <div class="metric">
-              <span>Hosting</span>
-              <strong>24/7</strong>
+              <span>Uptime SLA</span>
+              <strong>99.9%</strong>
             </div>
 
-
             <div class="metric">
-              <span>Version</span>
-              <strong>V1.2.8</strong>
+              <span>Current Build</span>
+              <strong>v1.2.8</strong>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
 
-
-
-    <section id="features" class="features">
-
-      <h2>Bot Features</h2>
-
+    <!-- Features Section -->
+    <section id="features" class="features site-section">
+      <h2 class="section-title">Engineered for Modern Communities</h2>
+      <p class="section-desc">Everything you need to automate and manage your server efficiently.</p>
 
       <div class="feature-grid">
-
-
         <div class="feature-card">
-
-          <h3>Moderation</h3>
-
+          <h3>Advanced Moderation</h3>
           <p>
-            Keep your server clean with warnings, timeouts,
-            filters, and moderation commands.
+            Protect your server with intelligent content filtering, structured warnings, customizable timeouts, and detailed member management.
           </p>
-
         </div>
 
-
-
         <div class="feature-card">
-
-          <h3>Automation</h3>
-
+          <h3>Workflow Automation</h3>
           <p>
-            Save time with reaction roles, scheduled tasks,
-            automations, and useful server tools.
+            Automate tedious community workflows using self-assignable reaction roles, scheduled tasks, and robust event triggers.
           </p>
-
         </div>
 
-
-
         <div class="feature-card">
-
-          <h3>Logging</h3>
-
+          <h3>Real-Time Audit Logs</h3>
           <p>
-            Track important server events with simple,
-            detailed logs.
+            Maintain complete visibility over server events with detailed, customizable logging channels and activity history.
           </p>
-
         </div>
 
-
-
         <div class="feature-card">
-
-          <h3>Reliability</h3>
-
+          <h3>Enterprise Reliability</h3>
           <p>
-            The bot runs 24/7 with monitoring to keep it online.
+            Deployed on high-availability infrastructure with proactive health monitoring to guarantee continuous uptime.
           </p>
-
         </div>
-
-
       </div>
-
     </section>
 
+    <!-- Command List Section -->
+    <!-- Command List Section -->
+    <section id="commands" class="site-section">
+      <h2 class="section-title">Command List</h2>
+      <p class="section-desc">Explore what Fightgamer124 can do for your server.</p>
 
+      <div class="command-controls">
+        <input type="text" id="cmdSearch" class="search-input" placeholder="Search commands...">
+      </div>
 
-    <section id="status" class="status-section">
+      <div class="command-categories" id="commandGrid">
+        
+        <!-- Case System -->
+        <details class="command-category">
+          <summary class="category-title">Case System <span class="cmd-count">6 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/case setup">
+              <div class="command-name">/case setup</div>
+              <div class="command-desc">Configure the submission, review, and results channels.</div>
+              <span class="command-badge">Case System</span>
+            </div>
+            <div class="command-card" data-name="/case submit">
+              <div class="command-name">/case submit</div>
+              <div class="command-desc">Open the appeal modal to submit a case.</div>
+              <span class="command-badge">Case System</span>
+            </div>
+            <div class="command-card" data-name="/case decide">
+              <div class="command-name">/case decide</div>
+              <div class="command-desc">Issue a final decision (Approve or Deny) on a case.</div>
+              <span class="command-badge">Case System</span>
+            </div>
+            <div class="command-card" data-name="/case history">
+              <div class="command-name">/case history</div>
+              <div class="command-desc">View past cases submitted by a specific user.</div>
+              <span class="command-badge">Case System</span>
+            </div>
+            <div class="command-card" data-name="/case view">
+              <div class="command-name">/case view</div>
+              <div class="command-desc">View detailed information for a specific case ID.</div>
+              <span class="command-badge">Case System</span>
+            </div>
+            <div class="command-card" data-name="/case list">
+              <div class="command-name">/case list</div>
+              <div class="command-desc">List cases in the server filtered by status.</div>
+              <span class="command-badge">Case System</span>
+            </div>
+          </div>
+        </details>
 
-      <h2>Live Status</h2>
+        <!-- Verification -->
+        <details class="command-category">
+          <summary class="category-title">Verification <span class="cmd-count">3 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/verify setup">
+              <div class="command-name">/verify setup</div>
+              <div class="command-desc">Configure the verification channel, role, and method (Button or Captcha).</div>
+              <span class="command-badge">Verification</span>
+            </div>
+            <div class="command-card" data-name="/verify disable">
+              <div class="command-name">/verify disable</div>
+              <div class="command-desc">Turn off the verification system.</div>
+              <span class="command-badge">Verification</span>
+            </div>
+            <div class="command-card" data-name="/verify status">
+              <div class="command-name">/verify status</div>
+              <div class="command-desc">Check current verification setup and channel status.</div>
+              <span class="command-badge">Verification</span>
+            </div>
+          </div>
+        </details>
 
+        <!-- Welcome -->
+        <details class="command-category">
+          <summary class="category-title">Welcome & Goodbye <span class="cmd-count">3 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/welcome setup">
+              <div class="command-name">/welcome setup</div>
+              <div class="command-desc">Manage welcome messages (enable, disable, test, toggleimage).</div>
+              <span class="command-badge">Welcome</span>
+            </div>
+            <div class="command-card" data-name="/welcome background">
+              <div class="command-name">/welcome background</div>
+              <div class="command-desc">Set or clear a custom image URL for welcome cards.</div>
+              <span class="command-badge">Welcome</span>
+            </div>
+            <div class="command-card" data-name="/welcome goodbye">
+              <div class="command-name">/welcome goodbye</div>
+              <div class="command-desc">Configure goodbye messages (enable, disable, test, embed).</div>
+              <span class="command-badge">Welcome</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Backup -->
+        <details class="command-category">
+          <summary class="category-title">Backup System <span class="cmd-count">4 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/backup create">
+              <div class="command-name">/backup create</div>
+              <div class="command-desc">Create a private or public server configuration backup.</div>
+              <span class="command-badge">Backup</span>
+            </div>
+            <div class="command-card" data-name="/backup list">
+              <div class="command-name">/backup list</div>
+              <div class="command-desc">View all available private and public backups.</div>
+              <span class="command-badge">Backup</span>
+            </div>
+            <div class="command-card" data-name="/backup info">
+              <div class="command-name">/backup info</div>
+              <div class="command-desc">Inspect details of a specific backup file.</div>
+              <span class="command-badge">Backup</span>
+            </div>
+            <div class="command-card" data-name="/backup load">
+              <div class="command-name">/backup load</div>
+              <div class="command-desc">Restore server roles, channels, and permissions from a backup file.</div>
+              <span class="command-badge">Backup</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Permissions -->
+        <details class="command-category">
+          <summary class="category-title">Permissions <span class="cmd-count">5 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/permissions mode">
+              <div class="command-name">/permissions mode</div>
+              <div class="command-desc">Switch between basic and custom permission modes.</div>
+              <span class="command-badge">Permissions</span>
+            </div>
+            <div class="command-card" data-name="/permissions setrole">
+              <div class="command-name">/permissions setrole</div>
+              <div class="command-desc">Require a specific role to use a command.</div>
+              <span class="command-badge">Permissions</span>
+            </div>
+            <div class="command-card" data-name="/permissions removerole">
+              <div class="command-name">/permissions removerole</div>
+              <div class="command-desc">Remove a role requirement from a command.</div>
+              <span class="command-badge">Permissions</span>
+            </div>
+            <div class="command-card" data-name="/permissions clear">
+              <div class="command-name">/permissions clear</div>
+              <div class="command-desc">Remove all role restrictions from a command.</div>
+              <span class="command-badge">Permissions</span>
+            </div>
+            <div class="command-card" data-name="/permissions list">
+              <div class="command-name">/permissions list</div>
+              <div class="command-desc">View current permission mode and all rules.</div>
+              <span class="command-badge">Permissions</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Polls -->
+        <details class="command-category">
+          <summary class="category-title">Polls <span class="cmd-count">3 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/poll">
+              <div class="command-name">/poll</div>
+              <div class="command-desc">Create a new poll with emoji voting (up to 10 options).</div>
+              <span class="command-badge">Polls</span>
+            </div>
+            <div class="command-card" data-name="/poll_results">
+              <div class="command-name">/poll_results</div>
+              <div class="command-desc">View current vote counts for a poll.</div>
+              <span class="command-badge">Polls</span>
+            </div>
+            <div class="command-card" data-name="/poll_end">
+              <div class="command-name">/poll_end</div>
+              <div class="command-desc">End a poll and display final results/winners.</div>
+              <span class="command-badge">Polls</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Reaction & Dropdown Roles -->
+        <details class="command-category">
+          <summary class="category-title">Reaction & Dropdown Roles <span class="cmd-count">8 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/reactionrole">
+              <div class="command-name">/reactionrole</div>
+              <div class="command-desc">Create a reaction role message.</div>
+              <span class="command-badge">Reaction Roles</span>
+            </div>
+            <div class="command-card" data-name="/reactionrole_add">
+              <div class="command-name">/reactionrole_add</div>
+              <div class="command-desc">Add a reaction role to an existing message.</div>
+              <span class="command-badge">Reaction Roles</span>
+            </div>
+            <div class="command-card" data-name="/reactionrole_remove">
+              <div class="command-name">/reactionrole_remove</div>
+              <div class="command-desc">Remove a reaction role from a message.</div>
+              <span class="command-badge">Reaction Roles</span>
+            </div>
+            <div class="command-card" data-name="/reactionrole_list">
+              <div class="command-name">/reactionrole_list</div>
+              <div class="command-desc">List all active reaction role messages in the server.</div>
+              <span class="command-badge">Reaction Roles</span>
+            </div>
+            <div class="command-card" data-name="/dropdownrole">
+              <div class="command-name">/dropdownrole</div>
+              <div class="command-desc">Create a dropdown role menu.</div>
+              <span class="command-badge">Dropdown Roles</span>
+            </div>
+            <div class="command-card" data-name="/dropdownrole_add">
+              <div class="command-name">/dropdownrole_add</div>
+              <div class="command-desc">Add a role option to a dropdown menu.</div>
+              <span class="command-badge">Dropdown Roles</span>
+            </div>
+            <div class="command-card" data-name="/dropdownrole_remove">
+              <div class="command-name">/dropdownrole_remove</div>
+              <div class="command-desc">Remove a role option from a dropdown menu.</div>
+              <span class="command-badge">Dropdown Roles</span>
+            </div>
+            <div class="command-card" data-name="/dropdownrole_list">
+              <div class="command-name">/dropdownrole_list</div>
+              <div class="command-desc">List all dropdown role menus in the server.</div>
+              <span class="command-badge">Dropdown Roles</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Schedule -->
+        <details class="command-category">
+          <summary class="category-title">Schedule <span class="cmd-count">3 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/schedule create">
+              <div class="command-name">/schedule create</div>
+              <div class="command-desc">Open a modal form to schedule a message.</div>
+              <span class="command-badge">Schedule</span>
+            </div>
+            <div class="command-card" data-name="/schedule list">
+              <div class="command-name">/schedule list</div>
+              <div class="command-desc">List all scheduled messages for the server.</div>
+              <span class="command-badge">Schedule</span>
+            </div>
+            <div class="command-card" data-name="/schedule cancel">
+              <div class="command-name">/schedule cancel</div>
+              <div class="command-desc">Cancel a scheduled message by ID.</div>
+              <span class="command-badge">Schedule</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Snipe -->
+        <details class="command-category">
+          <summary class="category-title">Snipe <span class="cmd-count">1 command</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/snipe">
+              <div class="command-name">/snipe</div>
+              <div class="command-desc">View recently deleted or edited messages in the channel.</div>
+              <span class="command-badge">Snipe</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Socials & Stat Channels -->
+        <details class="command-category">
+          <summary class="category-title">Socials & Stat Channels <span class="cmd-count">5 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/socials link">
+              <div class="command-name">/socials link</div>
+              <div class="command-desc">Link your Twitch or YouTube channel.</div>
+              <span class="command-badge">Socials</span>
+            </div>
+            <div class="command-card" data-name="/socials unlink">
+              <div class="command-name">/socials unlink</div>
+              <div class="command-desc">Unlink a social platform.</div>
+              <span class="command-badge">Socials</span>
+            </div>
+            <div class="command-card" data-name="/socials stats">
+              <div class="command-name">/socials stats</div>
+              <div class="command-desc">View your or another user's social stats.</div>
+              <span class="command-badge">Socials</span>
+            </div>
+            <div class="command-card" data-name="/socials leaderboard">
+              <div class="command-name">/socials leaderboard</div>
+              <div class="command-desc">View the top Twitch/YouTube channels in the server.</div>
+              <span class="command-badge">Socials</span>
+            </div>
+            <div class="command-card" data-name="/statchannel">
+              <div class="command-name">/statchannel</div>
+              <div class="command-desc">Add, remove, or list voice channels displaying live follower/subscriber counts.</div>
+              <span class="command-badge">Stat Channels</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Starboard & Custom Commands -->
+        <details class="command-category">
+          <summary class="category-title">Starboard & Custom Commands <span class="cmd-count">7 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/star setup">
+              <div class="command-name">/star setup</div>
+              <div class="command-desc">Set up the starboard system in a specific channel.</div>
+              <span class="command-badge">Starboard</span>
+            </div>
+            <div class="command-card" data-name="/cc add">
+              <div class="command-name">/cc add</div>
+              <div class="command-desc">Add custom server text commands.</div>
+              <span class="command-badge">Custom Commands</span>
+            </div>
+            <div class="command-card" data-name="/cc edit">
+              <div class="command-name">/cc edit</div>
+              <div class="command-desc">Edit existing custom server text commands.</div>
+              <span class="command-badge">Custom Commands</span>
+            </div>
+            <div class="command-card" data-name="/cc remove">
+              <div class="command-name">/cc remove</div>
+              <div class="command-desc">Remove custom server text commands.</div>
+              <span class="command-badge">Custom Commands</span>
+            </div>
+            <div class="command-card" data-name="/cc list">
+              <div class="command-name">/cc list</div>
+              <div class="command-desc">List all custom server text commands.</div>
+              <span class="command-badge">Custom Commands</span>
+            </div>
+            <div class="command-card" data-name="/cc info">
+              <div class="command-name">/cc info</div>
+              <div class="command-desc">Inspect details of a custom text command.</div>
+              <span class="command-badge">Custom Commands</span>
+            </div>
+            <div class="command-card" data-name="/cc search">
+              <div class="command-name">/cc search</div>
+              <div class="command-desc">Search through custom server text commands.</div>
+              <span class="command-badge">Custom Commands</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Economy & Gambling -->
+        <details class="command-category">
+          <summary class="category-title">Economy & Gambling <span class="cmd-count">10 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="/give">
+              <div class="command-name">/give</div>
+              <div class="command-desc">Interactive direct currency transfers between server members.</div>
+              <span class="command-badge">Economy</span>
+            </div>
+            <div class="command-card" data-name="/additem">
+              <div class="command-name">/additem</div>
+              <div class="command-desc">Admin controls to add items to the store.</div>
+              <span class="command-badge">Economy</span>
+            </div>
+            <div class="command-card" data-name="/removeitem">
+              <div class="command-name">/removeitem</div>
+              <div class="command-desc">Admin controls to remove items from the store.</div>
+              <span class="command-badge">Economy</span>
+            </div>
+            <div class="command-card" data-name="/buy">
+              <div class="command-name">/buy</div>
+              <div class="command-desc">Fuzzy search routing for item purchasing.</div>
+              <span class="command-badge">Economy</span>
+            </div>
+            <div class="command-card" data-name="Slots">
+              <div class="command-name">Slots</div>
+              <div class="command-desc">3-symbol slot machine reel spin. Payout: 10x for 3-of-a-kind; 2x for pairs.</div>
+              <span class="command-badge">Gambling</span>
+            </div>
+            <div class="command-card" data-name="Blackjack">
+              <div class="command-name">Blackjack</div>
+              <div class="command-desc">Dynamic card draw against dealer logic (stand on 17). Payout: 2.5x for natural Blackjack (3:2); 2x for win.</div>
+              <span class="command-badge">Gambling</span>
+            </div>
+            <div class="command-card" data-name="Roulette">
+              <div class="command-name">Roulette</div>
+              <div class="command-desc">European wheel rules (single 0). Payouts: Number (35:1), Color (2:1), Even/Odd (2:1), Dozen/Column (3:1), Half (2:1).</div>
+              <span class="command-badge">Gambling</span>
+            </div>
+            <div class="command-card" data-name="Coin Flip">
+              <div class="command-name">Coin Flip</div>
+              <div class="command-desc">50/50 prediction game with quick input (heads/tails). Payout: 2x for correct pick.</div>
+              <span class="command-badge">Gambling</span>
+            </div>
+            <div class="command-card" data-name="Dice Bet">
+              <div class="command-name">Dice Bet</div>
+              <div class="command-desc">Roll prediction across standard 1–6 die. Payout: 5x for exact match.</div>
+              <span class="command-badge">Gambling</span>
+            </div>
+            <div class="command-card" data-name="Poker">
+              <div class="command-name">Poker</div>
+              <div class="command-desc">5-Card Draw & Texas Hold'em interactive views with card swapping & round progression. Payout: 2x for win; tie refunds bet.</div>
+              <span class="command-badge">Gambling</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Mini-Games -->
+        <details class="command-category">
+          <summary class="category-title">Mini-Games <span class="cmd-count">5 commands</span></summary>
+          <div class="command-grid">
+            <div class="command-card" data-name="Tic Tac Toe">
+              <div class="command-name">Tic Tac Toe</div>
+              <div class="command-desc">Supports variable grid sizes (3x3 to 5x5) playable against members or the bot.</div>
+              <span class="command-badge">Mini-Games</span>
+            </div>
+            <div class="command-card" data-name="Higher or Lower">
+              <div class="command-name">Higher or Lower</div>
+              <div class="command-desc">Guessing higher/lower sequence across a custom range scale (up to 1000).</div>
+              <span class="command-badge">Mini-Games</span>
+            </div>
+            <div class="command-card" data-name="Trivia">
+              <div class="command-name">Trivia</div>
+              <div class="command-desc">Open trivia challenge system configured by difficulty level.</div>
+              <span class="command-badge">Mini-Games</span>
+            </div>
+            <div class="command-card" data-name="Connect 4">
+              <div class="command-name">Connect 4</div>
+              <div class="command-desc">Multi-directional line matching game vs players or AI.</div>
+              <span class="command-badge">Mini-Games</span>
+            </div>
+            <div class="command-card" data-name="Hangman & Battleship">
+              <div class="command-name">Hangman & Battleship</div>
+              <div class="command-desc">Text/button hybrid guessing puzzles.</div>
+              <span class="command-badge">Mini-Games</span>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- Status Section -->
+    <section id="status" class="status-section site-section">
+      <h2 class="section-title">Live System Status</h2>
 
       <div class="status-card">
-
         <div class="status-header">
-
           <div id="liveDot" class="dot"></div>
-
           <div>
-
-            <h3 id="liveStatus">
-              Checking...
-            </h3>
-
-            <p id="liveUptime">
-              Loading...
-            </p>
-
+            <h3 id="liveStatus">Querying infrastructure status...</h3>
+            <p id="liveUptime">Fetching metrics...</p>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="site-section">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Got questions? We've got answers.</p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <details>
+            <summary>How do I invite the bot to my server?</summary>
+            <div class="faq-content">
+              Click the "Add to Discord" button at the top of the page. Select your server, grant the requested permissions, and click "Authorize".
+            </div>
+          </details>
         </div>
 
+        <div class="faq-item">
+          <details>
+            <summary>Why isn't the bot responding to commands?</summary>
+            <div class="faq-content">
+              Ensure the bot has the correct channel permissions (`View Channel`, `Send Messages`, `Embed Links`). Also verify if the bot is currently undergoing maintenance.
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary>Is Fightgamer124 free to use?</summary>
+            <div class="faq-content">
+              Yes! All core moderation, logging, and utility features are 100% free for all servers with optional premium features.
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary>What is the infrastructure uptime SLA?</summary>
+            <div class="faq-content">
+              The service is continuously monitored and hosted on dedicated infrastructure designed for 99.9% uptime.
+            </div>
+          </details>
+        </div>
       </div>
-
-
     </section>
 
-
-
-
-    <section id="faq" class="faq">
-
-      <h2>FAQ</h2>
-
-
-      <div class="faq-item">
-
-        <h3>Is the bot free?</h3>
-
-        <p>
-          Yes, the main features are free to use.
-        </p>
-
-      </div>
-
-
-
-      <div class="faq-item">
-
-        <h3>Is the bot online all the time?</h3>
-
-        <p>
-          Yes, it is hosted 24/7 and monitored.
-        </p>
-
-      </div>
-
-
-
-      <div class="faq-item">
-
-        <h3>How do I report bugs?</h3>
-
-        <p>
-          Use the /ticket new command or contact us at:
-          <br>
-          <a href="mailto:Spygaming1245@gmail.com">
-            Spygaming1245@gmail.com
+    <!-- Support CTA Section -->
+    <section class="site-section">
+      <div class="support-box">
+        <h2 class="section-title" style="margin-bottom: 0.5rem;">Need Help or Have Feedback?</h2>
+        <p class="section-desc" style="margin-bottom: 0;">Join our official Discord community to ask questions, report bugs, or chat with the team.</p>
+        
+        <div class="support-buttons">
+          <a href="https://discord.gg/your-invite-link" target="_blank" rel="noopener" class="btn btn-primary">
+            Join Support Discord
           </a>
-        </p>
-
+          <a href="mailto:Spygaming1245@gmail.com" class="btn btn-secondary">
+            Email Support
+          </a>
+        </div>
       </div>
-
-
     </section>
-
-
   </main>
 
-
-
+  <!-- Footer -->
   <footer>
-
     <div class="footer-links">
-
-      <a href="tos.html">
-        Terms
-      </a>
-
-      <a href="privacy.html">
-        Privacy
-      </a>
-
+      <a href="tos.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="update.html">Changelog</a>
     </div>
 
-
-    <p>
-      © 2026 Fightgamer124.inc
-    </p>
-
+    <p>© 2026 Fightgamer124 Inc. All rights reserved.</p>
   </footer>
 
-
-
-
-
-  <div id="inviteModal" class="modal hidden">
-
-
+  <!-- Modal -->
+  <div id="inviteModal" class="modal hidden" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
     <div class="modal-card">
-
-
-      <h2>
-        Before adding the bot
-      </h2>
-
+      <h2 id="modalTitle">Authorize Application</h2>
 
       <p>
-        Please read and accept the
-        <a href="tos.html" target="_blank">
-          Terms of Service
-        </a>
-
-        and
-
-        <a href="privacy.html" target="_blank">
-          Privacy Policy
-        </a>
-
-        before continuing.
+        Please review and accept our 
+        <a href="tos.html" target="_blank" rel="noopener">Terms of Service</a> 
+        and 
+        <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> 
+        before adding the bot to your server.
       </p>
 
-
-
       <label class="checkbox">
-
         <input type="checkbox" id="agree" />
-
-        <span>
-          I agree to the Terms of Service and Privacy Policy.
-        </span>
-
+        <span>I have read and agree to the Terms of Service and Privacy Policy.</span>
       </label>
 
-
-
       <div class="modal-buttons">
-
-
-        <button id="cancelInvite" class="secondary-button">
-          Cancel
-        </button>
-
-
-        <button id="continueInvite" class="primary-button" disabled>
-          Continue
-        </button>
-
-
+        <button id="cancelInvite" class="secondary-button">Cancel</button>
+        <button id="continueInvite" class="primary-button" disabled>Authorize & Continue</button>
       </div>
-
-
     </div>
-
-
   </div>
 
-
-
-
   <script src="script.js"></script>
-
 </body>
 </html>
