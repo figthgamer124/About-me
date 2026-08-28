@@ -3,52 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FG124 | Embed Builder</title>
+    <title>FG124 | Professional Embed Builder</title>
     <link rel="stylesheet" href="embed.css">
+    <!-- Inter Font for Clean UI Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header class="topbar">
     <div class="brand">
-        <!-- Back to Index Button -->
         <a href="/" class="btn btn-secondary back-btn" title="Back to Main Index">
-            ↩ Back To Home Page
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Home
         </a>
-        <h1>Fightgamer124.inc Builder</h1>
+        <h1 class="brand-title">Fightgamer124<span>.inc</span></h1>
         <span class="badge">v2.0</span>
     </div>
     <div class="top-actions">
-        <button id="importBtn" class="btn btn-secondary">Import JSON</button>
-        <button id="exportBtn" class="btn btn-secondary">Export JSON</button>
+        <button id="importBtn" class="btn btn-secondary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Import JSON
+        </button>
+        <button id="exportBtn" class="btn btn-secondary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Export JSON
+        </button>
         <button id="clearAllBtn" class="btn btn-danger">Clear All</button>
     </div>
 </header>
 
-<!-- Webhook Integration Bar -->
 <div class="webhook-bar">
-    <input type="url" id="webhookUrl" placeholder="https://discord.com/api/webhooks/..." />
+    <div class="input-wrapper">
+        <svg class="webhook-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        <input type="url" id="webhookUrl" placeholder="https://discord.com/api/webhooks/..." />
+    </div>
     <button id="sendWebhookBtn" class="btn btn-primary">Send Message</button>
 </div>
 
 <main class="layout">
     <!-- EDITOR PANEL -->
-    <section class="editor">
+    <section class="editor-panel">
+        <div class="panel-header">
+            <h2>Embed Creator</h2>
+            <p>Configure your message layout, embeds, and action rows.</p>
+        </div>
         
         <!-- Main Message Content -->
         <details class="accordion-section" open>
             <summary class="accordion-header">
-                <span>Message Content</span>
+                <span class="header-title">Message Content</span>
                 <span class="counter"><span id="contentCount">0</span>/2000</span>
             </summary>
             <div class="accordion-body">
-                <textarea id="messageContent" placeholder="Main message text above embeds... (Supports Discord Markdown)" maxlength="2000"></textarea>
+                <textarea id="messageContent" placeholder="Main text above embeds... (Markdown supported)" maxlength="2000"></textarea>
             </div>
         </details>
 
         <!-- Embeds Accordion -->
         <details class="accordion-section" open>
             <summary class="accordion-header">
-                <span>Embeds (<span id="embedCount">1</span>/10)</span>
+                <span class="header-title">Embeds (<span id="embedCount">1</span>/10)</span>
             </summary>
             <div class="accordion-body">
                 <div id="embedTabs" class="embed-tabs"></div>
@@ -56,28 +72,27 @@
                 <div id="embedEditor" class="editor-content">
                     <!-- Author -->
                     <details class="nested-accordion">
-                        <summary>Author</summary>
+                        <summary>Author Options</summary>
                         <div class="nested-body">
-                            <input id="authorName" type="text" placeholder="Author name" maxlength="256">
-                            <input id="authorURL" type="url" placeholder="Author URL">
+                            <input id="authorName" type="text" placeholder="Author Name" maxlength="256">
+                            <input id="authorURL" type="url" placeholder="Author Link URL">
                             <input id="authorIcon" type="url" placeholder="Author Icon URL">
                         </div>
                     </details>
 
-                    <!-- Body (Title & Description) -->
+                    <!-- Body -->
                     <details class="nested-accordion" open>
-                        <summary>Body</summary>
+                        <summary>Body & Styling</summary>
                         <div class="nested-body">
-                            <input id="title" type="text" placeholder="Title" maxlength="256">
-                            <input id="titleURL" type="url" placeholder="Title URL">
+                            <input id="title" type="text" placeholder="Embed Title" maxlength="256">
+                            <input id="titleURL" type="url" placeholder="Title Link URL">
                             <div class="label-with-counter">
                                 <label>Description</label>
                                 <span class="counter"><span id="descriptionCount">0</span>/4096</span>
                             </div>
-                            <textarea id="description" placeholder="Description supports markdown (*italic*, **bold**, [link](url)...)" maxlength="4096"></textarea>
+                            <textarea id="description" placeholder="Description supports Markdown (*italic*, **bold**, [link](url)...)" maxlength="4096"></textarea>
                             
-                            <!-- Color Swatches -->
-                            <label>Embed Color</label>
+                            <label class="section-label">Accent Color</label>
                             <div class="color-picker-row">
                                 <input id="color" type="color" value="#5865f2">
                                 <input id="colorHex" type="text" value="#5865F2" maxlength="7">
@@ -87,7 +102,7 @@
                                     <button class="swatch" data-color="#fee75c" style="background:#fee75c"></button>
                                     <button class="swatch" data-color="#eb459e" style="background:#eb459e"></button>
                                     <button class="swatch" data-color="#ed4245" style="background:#ed4245"></button>
-                                    <button class="swatch" data-color="#000000" style="background:#000000"></button>
+                                    <button class="swatch" data-color="#111214" style="background:#111214"></button>
                                 </div>
                             </div>
                         </div>
@@ -95,10 +110,10 @@
 
                     <!-- Images -->
                     <details class="nested-accordion">
-                        <summary>Images</summary>
+                        <summary>Images & Media</summary>
                         <div class="nested-body">
-                            <input id="thumbnail" type="url" placeholder="Thumbnail URL">
-                            <input id="image" type="url" placeholder="Image URL">
+                            <input id="thumbnail" type="url" placeholder="Thumbnail Image URL (Top Right)">
+                            <input id="image" type="url" placeholder="Main Image URL (Bottom)">
                         </div>
                     </details>
 
@@ -107,27 +122,29 @@
                         <summary>Fields (<span id="fieldCount">0</span>/25)</summary>
                         <div class="nested-body">
                             <div id="fields" class="dynamic-list"></div>
-                            <button id="addField" class="btn btn-small">+ Add Field</button>
+                            <button id="addField" class="btn btn-outline">+ Add Field</button>
                         </div>
                     </details>
 
                     <!-- Footer -->
                     <details class="nested-accordion">
-                        <summary>Footer</summary>
+                        <summary>Footer & Timestamp</summary>
                         <div class="nested-body">
-                            <input id="footerText" type="text" placeholder="Footer text" maxlength="2048">
-                            <input id="footerIcon" type="url" placeholder="Footer icon URL">
-                            <label class="checkbox">
-                                <input id="timestamp" type="checkbox"> Include Timestamp
+                            <input id="footerText" type="text" placeholder="Footer Text" maxlength="2048">
+                            <input id="footerIcon" type="url" placeholder="Footer Icon URL">
+                            <label class="checkbox-container">
+                                <input id="timestamp" type="checkbox"> 
+                                <span class="checkbox-mask"></span>
+                                Include Current Timestamp
                             </label>
                         </div>
                     </details>
                 </div>
 
                 <div class="embed-controls">
-                    <button id="addEmbed" class="btn btn-small">+ Add Embed</button>
-                    <button id="duplicateEmbed" class="btn btn-secondary btn-small">Duplicate</button>
-                    <button id="deleteEmbed" class="btn btn-danger btn-small">Delete</button>
+                    <button id="addEmbed" class="btn btn-success">+ Add Embed</button>
+                    <button id="duplicateEmbed" class="btn btn-secondary">Duplicate</button>
+                    <button id="deleteEmbed" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </details>
@@ -135,29 +152,31 @@
         <!-- Action Rows / Buttons -->
         <details class="accordion-section">
             <summary class="accordion-header">
-                <span>Action Rows (Buttons)</span>
+                <span class="header-title">Action Rows (Interactive Buttons)</span>
             </summary>
             <div class="accordion-body">
                 <div id="buttons" class="dynamic-list"></div>
-                <button id="addButton" class="btn btn-small">+ Add Button</button>
+                <button id="addButton" class="btn btn-outline">+ Add Button</button>
             </div>
         </details>
 
         <!-- Raw JSON Preview Accordion -->
         <details class="accordion-section">
             <summary class="accordion-header">
-                <span>Raw JSON Payload</span>
+                <span class="header-title">Raw JSON Payload</span>
             </summary>
             <div class="accordion-body">
                 <pre id="jsonViewer" class="json-viewer"></pre>
             </div>
         </details>
-
     </section>
 
     <!-- DISCORD PREVIEW PANEL -->
-    <section class="preview">
-        <h2>Live Preview</h2>
+    <section class="preview-panel">
+        <div class="panel-header">
+            <h2>Live Preview</h2>
+            <p>Real-time rendering of your Discord message.</p>
+        </div>
         <div class="discord-window">
             <div class="discord-message">
                 <div class="avatar">
