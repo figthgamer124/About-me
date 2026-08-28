@@ -336,7 +336,21 @@ input[type="color"] { width: 38px; height: 35px; border: 1px solid var(--border-
 /* Discord Dark Message Window Preview */
 .discord-window { background: #36393f; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-bright); }
 .discord-message { display: flex; gap: 1rem; }
-.avatar { width: 40px; height: 40px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #fff; }
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .message-content { flex: 1; }
 .username-row { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem; }
 .username { font-weight: 600; font-size: 0.95rem; color: #ffffff; }
