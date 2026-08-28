@@ -92,8 +92,6 @@ body {
     transform: scale(0.97);
 }
 
-
-
 .editor, .preview { 
     background: var(--bg-secondary); 
     border-radius: 8px; 
@@ -233,8 +231,7 @@ textarea { resize: vertical; min-height: 80px; }
 
 .embed-controls { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
 
-
-/* Discord Inline Code */
+/* Discord Formatting Styles */
 .discord-inline-code {
     background: #2b2d31;
     color: #ebdbb2;
@@ -244,7 +241,6 @@ textarea { resize: vertical; min-height: 80px; }
     font-size: 0.85em;
 }
 
-/* Discord Multiline Code Blocks */
 .discord-code-block {
     background: #2b2d31;
     border: 1px solid #1e1f22;
@@ -260,7 +256,6 @@ textarea { resize: vertical; min-height: 80px; }
     white-space: pre;
 }
 
-/* Discord Blockquotes */
 .discord-blockquote {
     border-left: 4px solid #4e5058;
     padding-left: 0.6rem;
@@ -268,7 +263,6 @@ textarea { resize: vertical; min-height: 80px; }
     color: #b9bbbe;
 }
 
-/* Discord Spoilers */
 .discord-spoiler {
     background: #202225;
     color: transparent;
@@ -282,10 +276,9 @@ textarea { resize: vertical; min-height: 80px; }
     color: #dcddde;
 }
 
-
-/* High-Contrast Add Embed Button */
+/* High-Contrast Buttons */
 #addEmbed {
-    background-color: #248046; /* Discord Success Green */
+    background-color: #248046;
     color: #ffffff;
     font-weight: 700;
     border: 1px solid #1a5c32;
@@ -295,15 +288,9 @@ textarea { resize: vertical; min-height: 80px; }
     transition: background-color 0.15s ease, transform 0.1s ease;
 }
 
-#addEmbed:hover {
-    background-color: #1a5c32;
-}
+#addEmbed:hover { background-color: #1a5c32; }
+#addEmbed:active { transform: scale(0.98); }
 
-#addEmbed:active {
-    transform: scale(0.98);
-}
-
-/* Buttons */
 .btn { padding: 0.55rem 0.9rem; border-radius: 4px; border: none; font-weight: 600; cursor: pointer; color: #fff; font-size: 0.85rem; transition: background 0.15s; }
 .btn-primary { background: var(--accent); }
 .btn-primary:hover { background: var(--accent-hover); }
@@ -318,14 +305,13 @@ input[type="color"] { width: 38px; height: 35px; border: 1px solid var(--border-
 .swatches { display: flex; gap: 0.4rem; }
 .swatch { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.2); cursor: pointer; }
 
-/* Readable Raw JSON Preview Block */
+/* Raw JSON Block */
 .json-viewer { 
     background: #18191c; 
     padding: 0.85rem; 
     border-radius: 5px; 
     font-family: 'Consolas', 'Courier New', monospace; 
     font-size: 0.8rem; 
-    color: #008000;
     color: #55ff55; 
     max-height: 220px; 
     overflow-y: auto; 
@@ -333,17 +319,20 @@ input[type="color"] { width: 38px; height: 35px; border: 1px solid var(--border-
     border: 1px solid var(--border-bright);
 }
 
-/* Discord Dark Message Window Preview */
+/* Discord Preview Section */
 .discord-window { background: #36393f; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-bright); }
 .discord-message { display: flex; gap: 1rem; }
+
 .avatar {
     width: 40px;
     height: 40px;
+    min-width: 40px; /* Prevents avatar shrinking when screen is small */
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #000000;
 }
 
 .avatar-img {
@@ -351,6 +340,7 @@ input[type="color"] { width: 38px; height: 35px; border: 1px solid var(--border-
     height: 100%;
     object-fit: cover;
 }
+
 .message-content { flex: 1; }
 .username-row { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem; }
 .username { font-weight: 600; font-size: 0.95rem; color: #ffffff; }
@@ -379,7 +369,7 @@ input[type="color"] { width: 38px; height: 35px; border: 1px solid var(--border-
 .embed-footer { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: #a3a6aa; margin-top: 0.25rem; }
 .embed-footer img { width: 18px; height: 18px; border-radius: 50%; }
 
-/* Buttons Rendering */
+/* Dynamic Buttons Preview */
 .preview-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
 .discord-btn { background: #4f545c; color: #fff; border: none; padding: 0.45rem 0.85rem; border-radius: 3px; font-size: 0.85rem; cursor: not-allowed; font-weight: 600; }
 .discord-btn.primary { background: var(--accent); }
