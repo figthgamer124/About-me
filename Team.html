@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fightgamer124.inc — Leadership & Team</title>
+
+<style>
+:root {
+    --bg-main: #0b0d12;
+    --bg-card: #151821;
+    --bg-card-hover: #1c202c;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(167, 139, 250, 0.3);
+    --accent-purple: #8b5cf6;
+    --accent-purple-bright: #a78bfa;
+    --accent-cyan: #38bdf8;
+    --text-heading: #f8fafc;
+    --text-body: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-heading);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(109, 40, 217, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 100%, rgba(56, 189, 248, 0.05) 0%, transparent 40%);
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    background: rgba(15, 17, 23, 0.8);
+    backdrop-filter: blur(12px);
+    padding: 16px 40px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-body);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-button:hover {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--accent-purple-bright);
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: translateX(-3px);
+}
+
+.back-button svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    transition: transform 0.2s ease;
+}
+
+.back-button:hover svg {
+    transform: translateX(-2px);
+}
+
+/* Hero Section Header */
+header {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffffff 30%, #c4b5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+}
+
+header p {
+    color: var(--text-body);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Main Container */
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto 60px auto;
+    flex: 1;
+}
+
+/* Team Card Layout Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+/* Glassmorphic Member Cards */
+.member-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-6px);
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+.member-card:hover::before {
+    opacity: 1;
+}
+
+/* Profile Picture Frame with Glow */
+.pfp-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.pfp-glow {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+    opacity: 0.3;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.member-card:hover .pfp-glow {
+    opacity: 0.8;
+}
+
+.pfp-container {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    background: #000;
+}
+
+.pfp-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Typography & Info */
+.member-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.badge-cofounder {
+    background: rgba(139, 92, 246, 0.12);
+    color: #c4b5fd;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.badge-partner {
+    background: rgba(56, 189, 248, 0.12);
+    color: #7dd3fc;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.badge-cofounder .badge-dot { background: var(--accent-purple-bright); }
+.badge-partner .badge-dot { background: var(--accent-cyan); }
+
+.member-bio {
+    color: var(--text-body);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 32px 20px;
+    color: #475569;
+    font-size: 13px;
+    border-top: 1px solid var(--border-color);
+    background: rgba(11, 13, 18, 0.8);
+    margin-top: auto;
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="/" class="back-button">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        Back to Home
+    </a>
+</nav>
+
+<header>
+    <h1>Meet the Leadership</h1>
+    <p>The founders, developers, and partners behind Fightgamer124.inc ecosystem.</p>
+</header>
+
+<div class="container">
+    <div class="team-grid">
+
+        <!-- Member 1: Fightgamer124 -->
+        <div class="member-card">
+            <div class="pfp-wrapper">
+                <div class="pfp-glow"></div>
+                <div class="pfp-container">
+                    <img src="https://cdn.discordapp.com/avatars/544549795856121856/a_774314ed5ca78608f7bfae341cdf8aa8.webp?size=128&animated=true" alt="Fightgamer124 Avatar">
+                </div>
+            </div>
+            <div class="member-name">Fightgamer124</div>
+            <span class="badge badge-cofounder">
+                <span class="badge-dot"></span> Co-Founder
+            </span>
+            <div class="member-bio">
+                Lead Developer & Primary Programmer of Fightgamer124.inc. Engineered the core security frameworks, custom safety modules, and system features that keep communities protected and running smoothly.
+            </div>
+        </div>
+
+        <!-- Member 2: Astra -->
+        <div class="member-card">
+            <div class="pfp-wrapper">
+                <div class="pfp-glow"></div>
+                <div class="pfp-container">
+                    <img src="https://cdn.discordapp.com/avatars/1410385044459225208/e9673b42b64df0f5a66a0e90fee66c94.webp?size=128" alt="୨♡୧ 𝓐𝓼𝓽𝓻𝓪 ୨♡୧ Avatar">
+                </div>
+            </div>
+            <div class="member-name">୨♡୧ 𝓐𝓼𝓽𝓻𝓪 ୨♡୧</div>
+            <span class="badge badge-cofounder">
+                <span class="badge-dot"></span> Co-Founder
+            </span>
+            <div class="member-bio">
+                Support Lead & Quality Developer for Fightgamer124.inc. Handles user support, feature design, and system testing, while contributing custom code, bug fixes, and active moderation to keep the bot safe and reliable.
+            </div>
+        </div>
+
+        <!-- Member 3: Mrdemonreacher -->
+        <div class="member-card">
+            <div class="pfp-wrapper">
+                <div class="pfp-glow"></div>
+                <div class="pfp-container">
+                    <img src="https://cdn.discordapp.com/avatars/225241315661578240/30f990b6e07e05e41c9e162791ccc974.webp?size=128" alt="Mrdemonreacher Avatar">
+                </div>
+            </div>
+            <div class="member-name">Mrdemonreacher</div>
+            <span class="badge badge-partner">
+                <span class="badge-dot"></span> Partner
+            </span>
+            <div class="member-bio">
+                Partner & Community Lead for Fightgamer124.inc. Heads marketing and community growth strategies while serving as a key creative partner brainstorming and shaping new feature concepts for the bot.
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    Fightgamer124.inc © 2026 — All Rights Reserved.
+</footer>
+
+</body>
+</html>
