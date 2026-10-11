@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nova Music — a modern Windows desktop music player by Fightgamer124.">
+  <title>Nova Music | FG124 Projects</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nova-page { max-width: 1120px; margin: 0 auto; padding: 4.5rem 1.5rem 5rem; }
+    .nova-hero { display:grid; grid-template-columns:1.05fr .95fr; gap:3rem; align-items:center; padding:2rem 0 4rem; }
+    .nova-hero h1 { font-size:clamp(2.7rem,6vw,4.7rem); line-height:1.04; letter-spacing:-.055em; margin:.9rem 0 1.2rem; }
+    .nova-hero p { color:var(--text-muted); font-size:1.08rem; max-width:560px; margin-bottom:1.6rem; }
+    .nova-actions { display:flex; gap:.85rem; flex-wrap:wrap; }
+    .nova-logo-art { min-height:330px; border:1px solid var(--border-color); border-radius:22px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:.4rem; background:radial-gradient(ellipse at 50% 42%,rgba(106,75,255,.35),transparent 55%),#070910; box-shadow:0 24px 70px rgba(0,0,0,.35); position:relative; overflow:hidden; }
+    .nova-logo-art:before { content:""; position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0 20px,rgba(255,255,255,.025) 20px 21px); }
+    .nova-logo-n { font-size:9rem; line-height:.95; font-weight:800; color:#f1f0ff; text-shadow:0 0 18px #8b7aff,0 0 55px #5947ff; }
+    .nova-logo-note { position:absolute; font-size:3rem; color:#b9afff; top:18%; right:25%; text-shadow:0 0 22px #7b65ff; }
+    .nova-logo-label { letter-spacing:.42em; font-size:.8rem; color:#d5d4ee; }
+    .nova-meta { display:flex; flex-wrap:wrap; gap:.65rem; margin-top:1.4rem; }
+    .nova-chip { border:1px solid var(--border-color); background:rgba(255,255,255,.035); color:var(--text-muted); border-radius:99px; padding:.35rem .75rem; font-size:.8rem; }
+    .nova-section { margin-top:3rem; }
+    .nova-section h2 { font-size:1.8rem; margin-bottom:.6rem; }
+    .nova-section-intro { color:var(--text-muted); margin-bottom:1.5rem; }
+    .nova-features { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+    .nova-feature { background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.4rem; }
+    .nova-feature .symbol { display:inline-grid; place-items:center; width:2.4rem; height:2.4rem; border-radius:10px; background:var(--accent-light); color:#aeb5ff; font-size:1.15rem; margin-bottom:.8rem; }
+    .nova-feature h3 { margin-bottom:.45rem; font-size:1rem; }
+    .nova-feature p { color:var(--text-muted); font-size:.9rem; }
+    .download-panel { background:linear-gradient(135deg,#151921 0%,#1b1a3d 100%); border:1px solid rgba(88,101,242,.3); border-radius:var(--radius-lg); padding:2rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; }
+    .download-panel p { color:var(--text-muted); margin-top:.4rem; }
+    .download-panel .primary-button { color:white; white-space:nowrap; }
+    .download-note { color:var(--text-muted); font-size:.85rem; margin-top:1rem; }
+    .nova-nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .nova-nav .back-link { color:var(--text-muted); }
+    @media(max-width:760px) { .nova-hero { grid-template-columns:1fr; gap:2rem; padding-top:1rem; } .nova-logo-art { min-height:250px; } .nova-logo-n { font-size:7rem; } .nova-features { grid-template-columns:1fr; } .download-panel { flex-direction:column; align-items:flex-start; } }
+  </style>
+</head>
+<body>
+  <div class="background-grid"></div>
+  <div class="background-glow"></div>
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a class="logo" href="index.html"><img src="assets/logo.png" alt="Fightgamer124 Logo"></a>
+      <div class="nova-nav">
+        <a class="back-link" href="index.html">← Back to main site</a>
+      </div>
+    </nav>
+  </header>
+  <main class="nova-page">
+    <section class="nova-hero">
+      <div>
+        <span class="badge">Windows Desktop App</span>
+        <h1>Meet <span style="color:#9da5ff">Nova Music</span></h1>
+        <p>A modern desktop music experience designed around a clean dark interface. Keep your music and video playback close at hand with Nova Music for Windows.</p>
+        <div class="nova-actions">
+          <a class="primary-button" href="#download">Download for Windows</a>
+          <a class="secondary-button" href="index.html">Explore FG124</a>
+        </div>
+        <div class="nova-meta">
+          <span class="nova-chip">Windows</span>
+          <span class="nova-chip">Desktop app</span>
+          <span class="nova-chip">Dark interface</span>
+        </div>
+      </div>
+      <div class="nova-logo-art" role="img" aria-label="Stylized Nova Music logo artwork">
+        <span class="nova-logo-note">♫</span>
+        <div class="nova-logo-n">N</div>
+        <div class="nova-logo-label">NOVA MUSIC</div>
+      </div>
+    </section>
+
+    <section class="nova-section">
+      <h2>Made for your listening setup</h2>
+      <p class="nova-section-intro">A focused desktop app showcase for Nova Music.</p>
+      <div class="nova-features">
+        <article class="nova-feature"><span class="symbol">♫</span><h3>Your music, front and center</h3><p>A dedicated desktop experience built to keep playback and your music library easy to reach.</p></article>
+        <article class="nova-feature"><span class="symbol">▣</span><h3>Modern dark UI</h3><p>A sleek dark interface with a blue-purple accent style that fits the Nova identity.</p></article>
+        <article class="nova-feature"><span class="symbol">▶</span><h3>Music and video</h3><p>Designed for a listening experience that can include video playback as well as music.</p></article>
+      </div>
+    </section>
+
+    <section class="nova-section" id="download">
+      <div class="download-panel">
+        <div>
+          <h2>Get Nova Music</h2>
+          <p>The Windows installer will be available here when a release has been published.</p>
+        </div>
+        <a class="primary-button" href="https://github.com/figthgamer124/About-me/releases" target="_blank" rel="noopener">Check Releases ↗</a>
+      </div>
+      <p class="download-note">No installer is currently linked on this page. The button opens this project's GitHub Releases page; a direct download will be added when a verified installer is published.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="privacy.html">Privacy Policy</a></div>
+    <p>© 2026 Fightgamer124 Inc. All rights reserved.</p>
+  </footer>
+</body>
+</html>
