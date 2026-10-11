@@ -900,3 +900,39 @@ footer {
 
   
 }
+
+
+/* ==========================================================================
+   Projects & Nova Music showcase
+   ========================================================================== */
+.projects-preview { max-width: 1100px; }
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(240px, .85fr) 1.15fr;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+}
+.project-card:hover { border-color: rgba(88,101,242,.45); transform: translateY(-3px); }
+.project-art {
+  min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .25rem; position: relative; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 45%, rgba(91,72,255,.38), transparent 58%), #070910;
+  border-right: 1px solid var(--border-color);
+}
+.project-art::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, transparent 0 18px, rgba(255,255,255,.025) 18px 19px); }
+.project-monogram { font-size: 6rem; line-height: .95; font-weight: 800; color: #e7e9ff; text-shadow: 0 0 18px #7467ff, 0 0 42px #5865f2; }
+.project-note { position: absolute; top: 18%; right: 25%; font-size: 2.4rem; color: #b8b1ff; text-shadow: 0 0 18px #8d70ff; }
+.project-art span { letter-spacing: .35em; font-size: .72rem; color: #c7c9e9; }
+.project-copy { padding: 2rem; align-self: center; }
+.project-kicker { color: #9da5ff; font-size: .75rem; letter-spacing: .13em; font-weight: 700; }
+.project-copy h3 { font-size: 1.8rem; margin: .5rem 0; }
+.project-copy p { color: var(--text-muted); margin-bottom: 1.25rem; }
+.project-copy .primary-button { color: white; }
+@media (max-width: 650px) {
+  .project-card { grid-template-columns: 1fr; }
+  .project-art { min-height: 210px; border-right: 0; border-bottom: 1px solid var(--border-color); }
+  .project-copy { padding: 1.5rem; }
+}
