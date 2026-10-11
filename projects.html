@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Fightgamer124, including Nova Music for Windows.">
+  <title>Projects | FG124</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .projects-page { max-width:1100px; margin:0 auto; padding:4.5rem 1.5rem 5rem; }
+    .projects-heading { margin-bottom:2rem; }
+    .projects-heading h1 { font-size:clamp(2.4rem,5vw,3.6rem); letter-spacing:-.04em; margin-bottom:.6rem; }
+    .projects-heading p { color:var(--text-muted); max-width:680px; }
+    .projects-grid { display:grid; grid-template-columns:1fr; gap:1.25rem; }
+    .project-copy .project-status { display:inline-block; color:#aeb5ff; background:var(--accent-light); border:1px solid rgba(88,101,242,.25); border-radius:99px; padding:.25rem .65rem; font-size:.75rem; margin-bottom:.6rem; }
+  </style>
+</head>
+<body>
+  <div class="background-grid"></div>
+  <div class="background-glow"></div>
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a class="logo" href="index.html"><img src="assets/logo.png" alt="Fightgamer124 Logo"></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu">
+        <div class="nav-links">
+          <a href="index.html#features">Features</a>
+          <a href="index.html#commands">Commands</a>
+          <a href="index.html#status">Status</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="tos.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="update.html">Changelog</a>
+          <a href="embed.html">Embed Creator</a>
+          <a href="Team">Team</a>
+          <a href="projects.html" aria-current="page">Projects</a>
+        </div>
+        <a class="primary-button" href="index.html#inviteTop">Main Website</a>
+      </div>
+    </nav>
+  </header>
+  <main class="projects-page">
+    <div class="projects-heading">
+      <span class="badge">FG124 Lab</span>
+      <h1>Projects</h1>
+      <p>Apps and tools built by Fightgamer124. Select a project to learn more and find its release information.</p>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-art" role="img" aria-label="Stylized Nova Music artwork">
+          <div class="project-note">♫</div>
+          <div class="project-monogram">N</div>
+          <span>NOVA MUSIC</span>
+        </div>
+        <div class="project-copy">
+          <span class="project-status">Windows desktop app</span>
+          <h3>Nova Music</h3>
+          <p>A modern dark desktop music player concept with music library and video playback features. Open the project page for details and release information.</p>
+          <a class="primary-button" href="nova-music.html">Go to Project</a>
+        </div>
+      </article>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-links"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="tos.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div>
+    <p>© 2026 Fightgamer124 Inc. All rights reserved.</p>
+  </footer>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+  </script>
+</body>
+</html>
