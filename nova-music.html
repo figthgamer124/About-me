@@ -11,7 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .nova-page { max-width: 1120px; margin: 0 auto; padding: 4.5rem 1.5rem 5rem; }
+
+    .nova-gallery-section { margin-top:4rem; }
+    .nova-screenshot-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .nova-shot { display:flex; flex-direction:column; min-width:0; overflow:hidden; text-decoration:none; color:var(--text-primary); background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:14px; transition:transform .2s ease,border-color .2s ease; }
+    .nova-shot:hover { transform:translateY(-3px); border-color:rgba(157,165,255,.55); }
+    .nova-shot img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#09090d; }
+    .nova-shot span { padding:.8rem 1rem; font-size:.9rem; font-weight:600; }
+    .nova-shot-main { grid-column:1/-1; }
+    .nova-shot-main img { aspect-ratio:2/1; }
+    @media(max-width:650px) { .nova-screenshot-grid { grid-template-columns:1fr; } .nova-shot-main { grid-column:auto; } .nova-shot-main img { aspect-ratio:16/9; } }
+\n    .nova-page { max-width: 1120px; margin: 0 auto; padding: 4.5rem 1.5rem 5rem; }
     .nova-hero { display:grid; grid-template-columns:1.05fr .95fr; gap:3rem; align-items:center; padding:2rem 0 4rem; }
     .nova-hero h1 { font-size:clamp(2.7rem,6vw,4.7rem); line-height:1.04; letter-spacing:-.055em; margin:.9rem 0 1.2rem; }
     .nova-hero p { color:var(--text-muted); font-size:1.08rem; max-width:560px; margin-bottom:1.6rem; }
@@ -81,6 +91,38 @@
         <article class="nova-feature"><span class="symbol">♫</span><h3>Your music, front and center</h3><p>A dedicated desktop experience built to keep playback and your music library easy to reach.</p></article>
         <article class="nova-feature"><span class="symbol">▣</span><h3>Modern dark UI</h3><p>A sleek dark interface with a blue-purple accent style that fits the Nova identity.</p></article>
         <article class="nova-feature"><span class="symbol">▶</span><h3>Music and video</h3><p>Designed for a listening experience that can include video playback as well as music.</p></article>
+      </div>
+    </section>
+
+
+    <section class="nova-section nova-gallery-section" id="screenshots">
+      <h2>Take a look inside Nova Music</h2>
+      <p class="nova-section-intro">A closer look at the real Windows app, from your music library to the player and settings.</p>
+      <div class="nova-screenshot-grid">
+        <a class="nova-shot nova-shot-main" href="assets/nova-music-main.png" target="_blank" rel="noopener">
+          <img src="assets/nova-music-main.png" alt="Nova Music main library and playback interface" loading="lazy">
+          <span>Main music library</span>
+        </a>
+        <a class="nova-shot" href="assets/nova-music-now-playing.png" target="_blank" rel="noopener">
+          <img src="assets/nova-music-now-playing.png" alt="Nova Music fullscreen Now Playing view" loading="lazy">
+          <span>Fullscreen player</span>
+        </a>
+        <a class="nova-shot" href="assets/nova-music-youtube-import.png" target="_blank" rel="noopener">
+          <img src="assets/nova-music-youtube-import.png" alt="Import music from YouTube window" loading="lazy">
+          <span>YouTube import</span>
+        </a>
+        <a class="nova-shot" href="assets/nova-music-settings.png" target="_blank" rel="noopener">
+          <img src="assets/nova-music-settings.png" alt="Nova Music audio output and equalizer settings" loading="lazy">
+          <span>Audio settings & EQ</span>
+        </a>
+        <a class="nova-shot" href="assets/nova-music-auto-dj.png" target="_blank" rel="noopener">
+          <img src="assets/nova-music-auto-dj.png" alt="Nova Music Personal DJ and upcoming tracks" loading="lazy">
+          <span>Personal DJ</span>
+        </a>
+        <a class="nova-shot" href="assets/nova-music-mini-player.png" target="_blank" rel="noopener">
+          <img src="assets/nova-music-mini-player.png" alt="Nova Music compact player view" loading="lazy">
+          <span>Compact player</span>
+        </a>
       </div>
     </section>
 
